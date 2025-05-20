@@ -1,0 +1,104 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3pnt51ws3vj5"]
+
+[ext_resource type="Script" uid="uid://cdiua1msdb7xt" path="res://scenes/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Theme" uid="uid://bdhp2uvk0sxwp" path="res://themes/war_theme.tres" id="2_bqqt6"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ekxnf")
+
+[node name="Panel_Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_bqqt6")
+
+[node name="Button_Play" type="Button" parent="Panel_Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -68.0
+offset_right = 61.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+text = "DIDDLE CARDS"
+
+[node name="Button_Options" type="Button" parent="Panel_Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.5
+offset_top = 37.0
+offset_right = 39.5
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+text = "   OPTIONS   "
+
+[node name="Button_Deck" type="Button" parent="Panel_Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+text = "ADJUST DECK"
+
+[node name="Button_Quit" type="Button" parent="Panel_Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = 89.5
+offset_right = 54.0
+offset_bottom = 120.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+text = "CLOSE GAME"
+
+[node name="Label" type="Label" parent="Panel_Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -136.0
+offset_top = 36.0
+offset_right = 136.0
+offset_bottom = 75.0
+grow_horizontal = 2
+theme_type_variation = &"HeaderLarge"
+text = "CARD DIDDLER 9000"
+
+[connection signal="pressed" from="Panel_Background/Button_Play" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="Panel_Background/Button_Options" to="." method="_on_button_options_pressed"]
+[connection signal="pressed" from="Panel_Background/Button_Deck" to="." method="_on_button_deck_pressed"]
+[connection signal="pressed" from="Panel_Background/Button_Quit" to="." method="_on_button_quit_pressed"]

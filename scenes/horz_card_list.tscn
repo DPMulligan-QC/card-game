@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=3 uid="uid://1ldt0v6kbfuk"]
+
+[ext_resource type="Script" uid="uid://d24pk2hy68j2e" path="res://scenes/horz_card_list.gd" id="1_8pe4k"]
+[ext_resource type="Theme" uid="uid://bdhp2uvk0sxwp" path="res://themes/war_theme.tres" id="1_nvi31"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8pe4k")
+
+[node name="Panel_Background" type="Panel" parent="."]
+z_index = 10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_nvi31")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel_Background"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -175.0
+offset_right = -128.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel_Background/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 256
+alignment = 1
+
+[node name="Button_Back" type="Button" parent="Panel_Background"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 144.0
+offset_bottom = 47.0
+focus_mode = 0
+text = "BACK"
+
+[node name="Button_Accept" type="Button" parent="Panel_Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 345.97
+offset_right = 128.0
+offset_bottom = 409.97
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("1_nvi31")
+text = "ACCEPT SELECTION"
+
+[node name="Label" type="Label" parent="Panel_Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -152.0
+offset_top = 101.0
+offset_right = 152.0
+offset_bottom = 151.0
+grow_horizontal = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 36
+text = "STANDBY ZONE"
+
+[connection signal="pressed" from="Panel_Background/Button_Back" to="." method="_on_button_back_pressed"]
+[connection signal="pressed" from="Panel_Background/Button_Accept" to="." method="_on_button_accept_pressed"]

@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7j20xxeolc0x"]
+
+[ext_resource type="Script" uid="uid://8wc817rh0sp3" path="res://scenes/settings.gd" id="1_r6d6q"]
+[ext_resource type="Theme" uid="uid://bdhp2uvk0sxwp" path="res://themes/war_theme.tres" id="2_6wm04"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r6d6q")
+
+[node name="Panel_Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_6wm04")
+
+[node name="Label_Title" type="Label" parent="Panel_Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -140.0
+offset_right = 140.0
+offset_bottom = 34.0
+grow_horizontal = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 36
+text = "SETTINGS AND SHID"
+
+[node name="Button_Back" type="Button" parent="Panel_Background"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 144.0
+offset_bottom = 47.0
+focus_mode = 0
+text = "BACK TO MENU"
+
+[node name="OptionButton_Resolutions" type="OptionButton" parent="Panel_Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -16.0
+offset_right = 192.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label_Resolution" type="Label" parent="Panel_Background/OptionButton_Resolutions"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -60.215
+offset_right = 171.0
+offset_bottom = -26.215
+text = "RESOLUTION:"
+
+[connection signal="pressed" from="Panel_Background/Button_Back" to="." method="_on_button_back_pressed"]
+[connection signal="item_selected" from="Panel_Background/OptionButton_Resolutions" to="." method="_on_option_button_resolutions_item_selected"]

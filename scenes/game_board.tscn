@@ -1,0 +1,362 @@
+[gd_scene load_steps=10 format=3 uid="uid://ii2yo1f7vtjj"]
+
+[ext_resource type="Script" uid="uid://bkjibfct80jm6" path="res://scenes/game_board.gd" id="1_tqoos"]
+[ext_resource type="Theme" uid="uid://bdhp2uvk0sxwp" path="res://themes/war_theme.tres" id="2_3wu0g"]
+[ext_resource type="StyleBox" uid="uid://b63fflktoqcay" path="res://themes/new_style_box_neon_blue_outline.tres" id="3_cmh4g"]
+[ext_resource type="StyleBox" uid="uid://dsacbf4u48l6j" path="res://themes/new_style_box_neon_green_outline.tres" id="4_qmxhh"]
+[ext_resource type="StyleBox" uid="uid://5c3rl7jyyg4u" path="res://themes/new_style_box_deck_placeholder.tres" id="5_8nsfp"]
+[ext_resource type="StyleBox" uid="uid://bqinv653pww8w" path="res://themes/new_style_box_neon_red_outline.tres" id="6_qmxhh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmh4g"]
+bg_color = Color(0.168627, 0.180392, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.694118, 0.882353, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8nsfp"]
+size = Vector2(125, 175)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmjnl"]
+size = Vector2(132, 181)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_tqoos")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+z_index = -7
+z_as_relative = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Panel" type="Panel" parent="PanelContainer"]
+z_index = -6
+z_as_relative = false
+layout_mode = 2
+theme = ExtResource("2_3wu0g")
+
+[node name="Label_My_Credits" type="Label" parent="PanelContainer/Panel"]
+z_index = -3
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = -64.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = ExtResource("3_cmh4g")
+text = "5cr"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button_Add_Credit" type="Button" parent="PanelContainer/Panel/Label_My_Credits"]
+layout_mode = 0
+offset_left = 127.0
+offset_right = 191.0
+offset_bottom = 32.0
+focus_mode = 0
+theme = ExtResource("2_3wu0g")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_cmh4g")
+text = "+"
+
+[node name="Button_Next_Turn" type="Button" parent="PanelContainer/Panel/Label_My_Credits"]
+z_index = -3
+z_as_relative = false
+layout_mode = 0
+offset_left = 6.0
+offset_top = -40.0
+offset_right = 123.0
+offset_bottom = -8.0
+focus_mode = 0
+theme = ExtResource("2_3wu0g")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_cmh4g")
+text = "NEXT TURN"
+
+[node name="Button_Lose_Credit" type="Button" parent="PanelContainer/Panel/Label_My_Credits"]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 32.0
+offset_right = 191.0
+offset_bottom = 64.0
+focus_mode = 0
+theme = ExtResource("2_3wu0g")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_cmh4g")
+text = "-"
+
+[node name="Label_My_Life" type="Label" parent="PanelContainer/Panel"]
+z_index = -3
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_right = 128.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = ExtResource("4_qmxhh")
+text = "15/15"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button_Add_Life" type="Button" parent="PanelContainer/Panel/Label_My_Life"]
+layout_mode = 0
+offset_left = 127.0
+offset_right = 191.0
+offset_bottom = 32.0
+focus_mode = 0
+theme = ExtResource("2_3wu0g")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("4_qmxhh")
+text = "+"
+
+[node name="Button_Lose_Life" type="Button" parent="PanelContainer/Panel/Label_My_Life"]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 32.0
+offset_right = 191.0
+offset_bottom = 64.0
+focus_mode = 0
+theme = ExtResource("2_3wu0g")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("4_qmxhh")
+text = "-"
+
+[node name="Label_Their_Life" type="Label" parent="PanelContainer/Panel"]
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+offset_right = 128.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = ExtResource("4_qmxhh")
+text = "15/15"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button_Add_Their_Life" type="Button" parent="PanelContainer/Panel/Label_Their_Life"]
+layout_mode = 0
+offset_left = 127.0
+offset_right = 191.0
+offset_bottom = 32.0
+focus_mode = 0
+theme = ExtResource("2_3wu0g")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("4_qmxhh")
+text = "+"
+
+[node name="Button_Sub_Their_Life" type="Button" parent="PanelContainer/Panel/Label_Their_Life"]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 32.0
+offset_right = 191.0
+offset_bottom = 64.0
+focus_mode = 0
+theme = ExtResource("2_3wu0g")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("4_qmxhh")
+text = "-"
+
+[node name="Panel_My_Deck" type="Panel" parent="PanelContainer/Panel"]
+z_index = -3
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -175.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = ExtResource("5_8nsfp")
+
+[node name="Button_Draw" type="Button" parent="PanelContainer/Panel/Panel_My_Deck"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("2_3wu0g")
+text = "DRAW
+A
+CARD"
+
+[node name="Button_Search_Deck" type="Button" parent="PanelContainer/Panel/Panel_My_Deck"]
+z_index = -3
+z_as_relative = false
+layout_mode = 0
+offset_left = 6.0
+offset_top = -40.0
+offset_right = 123.0
+offset_bottom = -8.0
+focus_mode = 0
+theme = ExtResource("2_3wu0g")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_cmh4g")
+text = "SEARCH"
+
+[node name="Button_Shuffle" type="Button" parent="PanelContainer/Panel/Panel_My_Deck"]
+z_index = -3
+z_as_relative = false
+layout_mode = 0
+offset_left = 6.0
+offset_top = -80.685
+offset_right = 123.0
+offset_bottom = -48.685
+focus_mode = 0
+theme = ExtResource("2_3wu0g")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_cmh4g")
+text = "SHUFFLE"
+
+[node name="Sprite2D_Standby" type="Sprite2D" parent="PanelContainer/Panel"]
+z_index = -1
+z_as_relative = false
+position = Vector2(72, 450)
+texture = SubResource("PlaceholderTexture2D_8nsfp")
+
+[node name="Area2D_Standby" type="Area2D" parent="PanelContainer/Panel/Sprite2D_Standby"]
+
+[node name="CollisionShape2D_Standby" type="CollisionShape2D" parent="PanelContainer/Panel/Sprite2D_Standby/Area2D_Standby"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_mmjnl")
+
+[node name="Label_Standby" type="Label" parent="PanelContainer/Panel/Sprite2D_Standby"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -62.5
+offset_top = -87.5
+offset_right = -62.5
+offset_bottom = -87.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = ExtResource("4_qmxhh")
+text = "STANDBY 
+ZONE"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button_Search_Standby" type="Button" parent="PanelContainer/Panel/Sprite2D_Standby"]
+z_index = -3
+z_as_relative = false
+offset_left = -59.0
+offset_top = -136.0
+offset_right = 58.0
+offset_bottom = -104.0
+focus_mode = 0
+theme = ExtResource("2_3wu0g")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_cmh4g")
+text = "SEARCH"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label_Unit_Zone" type="Label" parent="PanelContainer/Panel"]
+z_index = -5
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 657.0
+offset_top = -672.0
+offset_right = -5.0
+offset_bottom = -268.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = ExtResource("4_qmxhh")
+text = "UNIT
+/
+ARMAMENT
+ZONE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label_Attacker_Zone" type="Label" parent="PanelContainer/Panel"]
+z_index = -5
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 658.0
+offset_top = -1079.0
+offset_right = -5.0
+offset_bottom = -677.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = ExtResource("6_qmxhh")
+text = "DECLARED 
+ATTACKER
+ZONE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label_Tactic_Zone" type="Label" parent="PanelContainer/Panel"]
+z_index = -5
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 210.0
+offset_top = -1079.0
+offset_right = -1269.0
+offset_bottom = -268.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = ExtResource("3_cmh4g")
+text = "TACTICS
+ ZONE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button_Reset" type="Button" parent="PanelContainer/Panel"]
+z_index = -3
+z_as_relative = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.003125
+anchor_top = 0.773611
+anchor_right = 0.003125
+anchor_bottom = 0.773611
+offset_top = -36.5
+offset_right = 117.0
+offset_bottom = 36.5
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("2_3wu0g")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_cmh4g")
+text = "SCOOP
+&
+RESET"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="PanelContainer/Panel/Label_My_Credits/Button_Add_Credit" to="." method="_on_button_add_credit_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel/Label_My_Credits/Button_Next_Turn" to="." method="_on_button_next_turn_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel/Label_My_Credits/Button_Lose_Credit" to="." method="_on_button_lose_credit_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel/Label_My_Life/Button_Add_Life" to="." method="_on_button_add_life_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel/Label_My_Life/Button_Lose_Life" to="." method="_on_button_lose_life_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel/Label_Their_Life/Button_Add_Their_Life" to="." method="_on_button_add_their_life_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel/Label_Their_Life/Button_Sub_Their_Life" to="." method="_on_button_sub_their_life_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel/Panel_My_Deck/Button_Draw" to="." method="_on_button_draw_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel/Panel_My_Deck/Button_Search_Deck" to="." method="_on_button_search_deck_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel/Panel_My_Deck/Button_Shuffle" to="." method="_on_button_shuffle_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel/Sprite2D_Standby/Button_Search_Standby" to="." method="_on_button_search_standby_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel/Button_Reset" to="." method="_on_button_reset_pressed"]

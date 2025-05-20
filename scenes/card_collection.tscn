@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://rmf2yxrsg1b1"]
+
+[ext_resource type="Script" uid="uid://bcbct5uvhgn8q" path="res://scenes/card_collection.gd" id="1_dkjof"]
+[ext_resource type="Theme" uid="uid://bdhp2uvk0sxwp" path="res://themes/war_theme.tres" id="2_3lsrj"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dkjof")
+
+[node name="Panel_Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_3lsrj")
+
+[node name="Button_Back" type="Button" parent="Panel_Background"]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 144.0
+offset_bottom = 47.0
+focus_mode = 0
+text = "BACK TO MENU"
+
+[connection signal="pressed" from="Panel_Background/Button_Back" to="." method="_on_button_back_pressed"]

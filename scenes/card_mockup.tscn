@@ -1,0 +1,138 @@
+[gd_scene load_steps=5 format=3 uid="uid://crd03vmlqqkg4"]
+
+[ext_resource type="Script" uid="uid://c8itxinqo88bp" path="res://scenes/card_object.gd" id="1_qe6ef"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vy5hq"]
+size = Vector2(125, 175)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fakqc"]
+bg_color = Color(0.101961, 0.109804, 0.113725, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.231373, 0.231373, 1)
+shadow_size = 6
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vy5hq"]
+size = Vector2(132, 181)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_qe6ef")
+
+[node name="CardBackground" type="Sprite2D" parent="."]
+position = Vector2(180, 980)
+texture = SubResource("PlaceholderTexture2D_vy5hq")
+
+[node name="Label_Cover" type="Label" parent="CardBackground"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -65.0
+offset_top = -91.0
+offset_right = -60.0
+offset_bottom = -87.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_fakqc")
+
+[node name="Label_Name" type="Label" parent="CardBackground/Label_Cover"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 21.0
+offset_right = 128.0
+offset_bottom = 35.0
+theme_type_variation = &"HeaderSmall"
+theme_override_font_sizes/font_size = 10
+text = "CARD NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label_Cost" type="Label" parent="CardBackground/Label_Cover"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 2.0
+offset_right = 128.0
+offset_bottom = 23.0
+theme_type_variation = &"HeaderSmall"
+theme_override_font_sizes/font_size = 10
+text = "Xcr"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label_Type" type="Label" parent="CardBackground/Label_Cover"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 91.0
+offset_bottom = 23.0
+theme_type_variation = &"HeaderSmall"
+theme_override_font_sizes/font_size = 8
+text = "UNIT-MAN"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label_Text" type="Label" parent="CardBackground/Label_Cover"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 40.0
+offset_right = 128.0
+offset_bottom = 160.0
+theme_type_variation = &"HeaderSmall"
+theme_override_font_sizes/font_size = 8
+text = "DESCRIPTION BLABLABLASGBLABLA "
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label_Health" type="Label" parent="CardBackground/Label_Cover"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 160.0
+offset_right = 128.0
+offset_bottom = 177.0
+theme_type_variation = &"HeaderSmall"
+theme_override_font_sizes/font_size = 12
+text = "XX"
+horizontal_alignment = 2
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="Label_Power" type="Label" parent="CardBackground/Label_Cover"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 160.0
+offset_right = 26.0
+offset_bottom = 177.0
+theme_type_variation = &"HeaderSmall"
+theme_override_font_sizes/font_size = 12
+text = "XX"
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="Label_Training" type="Label" parent="CardBackground/Label_Cover"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = -16.0
+offset_right = 13.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"HeaderSmall"
+theme_override_font_sizes/font_size = 10
+text = "XX"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="Area2D" type="Area2D" parent="CardBackground"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardBackground/Area2D"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_vy5hq")
