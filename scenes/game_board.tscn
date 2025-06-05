@@ -69,9 +69,9 @@ z_index = -3
 z_as_relative = false
 layout_mode = 0
 offset_left = 6.0
-offset_top = -40.0
-offset_right = 123.0
-offset_bottom = -8.0
+offset_top = -58.0
+offset_right = 131.0
+offset_bottom = -26.0
 focus_mode = 0
 theme = ExtResource("2_3wu0g")
 theme_override_font_sizes/font_size = 16
@@ -223,7 +223,7 @@ text = "SHUFFLE"
 [node name="Sprite2D_Standby" type="Sprite2D" parent="PanelContainer/Panel"]
 z_index = -1
 z_as_relative = false
-position = Vector2(72, 450)
+position = Vector2(95.5, 216.5)
 texture = SubResource("PlaceholderTexture2D_8nsfp")
 
 [node name="Area2D_Standby" type="Area2D" parent="PanelContainer/Panel/Sprite2D_Standby"]
@@ -332,12 +332,13 @@ z_as_relative = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.003125
-anchor_top = 0.773611
+anchor_top = 0.730093
 anchor_right = 0.003125
-anchor_bottom = 0.773611
-offset_top = -36.5
-offset_right = 117.0
-offset_bottom = 36.5
+anchor_bottom = 0.730093
+offset_left = 27.5
+offset_top = -357.5
+offset_right = 152.5
+offset_bottom = -284.5
 grow_vertical = 2
 focus_mode = 0
 theme = ExtResource("2_3wu0g")
@@ -346,7 +347,70 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_cmh4g")
 text = "SCOOP
 &
 RESET"
-metadata/_edit_use_anchors_ = true
+
+[node name="Button_Copy_Card" type="Button" parent="PanelContainer/Panel"]
+z_index = -3
+z_as_relative = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.003125
+anchor_top = 0.656018
+anchor_right = 0.003125
+anchor_bottom = 0.656018
+offset_left = 27.5
+offset_top = -375.5
+offset_right = 152.5
+offset_bottom = -302.5
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("2_3wu0g")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_cmh4g")
+text = "COPY 
+ANY
+CARD"
+
+[node name="Button_Hide_Hand" type="Button" parent="PanelContainer/Panel"]
+z_index = -3
+z_as_relative = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.003125
+anchor_top = 0.804167
+anchor_right = 0.003125
+anchor_bottom = 0.836574
+offset_left = 27.5
+offset_top = -331.5
+offset_right = 152.5
+offset_bottom = -293.5
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("2_3wu0g")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_cmh4g")
+text = "TOGGLE
+HIDE 
+HAND"
+
+[node name="Button_Hand_Hider" type="Button" parent="PanelContainer/Panel"]
+visible = false
+z_index = 11
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 210.0
+offset_top = 818.0
+offset_right = -131.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("2_3wu0g")
+theme_override_font_sizes/font_size = 36
+disabled = true
+text = "HIDDEN!!!"
 
 [connection signal="pressed" from="PanelContainer/Panel/Label_My_Credits/Button_Add_Credit" to="." method="_on_button_add_credit_pressed"]
 [connection signal="pressed" from="PanelContainer/Panel/Label_My_Credits/Button_Next_Turn" to="." method="_on_button_next_turn_pressed"]
@@ -360,3 +424,5 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="PanelContainer/Panel/Panel_My_Deck/Button_Shuffle" to="." method="_on_button_shuffle_pressed"]
 [connection signal="pressed" from="PanelContainer/Panel/Sprite2D_Standby/Button_Search_Standby" to="." method="_on_button_search_standby_pressed"]
 [connection signal="pressed" from="PanelContainer/Panel/Button_Reset" to="." method="_on_button_reset_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel/Button_Copy_Card" to="." method="_on_button_copy_card_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel/Button_Hide_Hand" to="." method="_on_button_hide_hand_pressed"]

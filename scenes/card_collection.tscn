@@ -25,8 +25,8 @@ theme = ExtResource("2_3lsrj")
 layout_mode = 1
 offset_left = 16.0
 offset_top = 16.0
-offset_right = 144.0
-offset_bottom = 47.0
+offset_right = 272.0
+offset_bottom = 144.0
 focus_mode = 0
 text = "BACK TO MENU"
 

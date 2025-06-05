@@ -27,7 +27,6 @@ func populate_base(_id:int, _json_path:String  = "res://databases/card_data.json
 	assert(FileAccess.file_exists(json_path), str("CARD.POPULATE():  FILE DOES NOT EXIST AT PATH ", json_path))
 	
 	var file = FileAccess.open(json_path,FileAccess.READ)
-	#file.open(json_path,FileAccess.READ)
 	json_text = file.get_as_text()
 	#print("json text output: " , json_text)
 	json_object = JSON.new()

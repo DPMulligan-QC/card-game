@@ -12,11 +12,15 @@ var card_type:int
 @onready var label_training:Label = $CardBackground/Label_Cover/Label_Training
 @onready var parent_sprite:Sprite2D = $CardBackground
 @onready var area:Area2D = $CardBackground/Area2D
+
+@onready var menu_bg:Panel=$CardBackground/Panel_Menu
+
 var base_health:int
 var base_attack:int
 var health:int
 var concealed:bool = false
 var card:Card
+var menu_visible:bool=false
 
 func _ready() -> void:
 	pass
@@ -97,9 +101,46 @@ func heal():
 	health = base_health
 	label_health.text = str(health)
 
-func buff(amt:int):
+func buff(amt:int=1):
 	base_health = base_health+amt
 	health = health+amt
 	base_attack = base_attack+amt
 	label_health.text = str(health)
 	label_power.text = str(base_attack)
+	
+func toggle_menu():
+	var isvis:bool = menu_bg.visible
+	if isvis:
+		parent_sprite.scale = Vector2(1.0,1.0)
+	else:
+		parent_sprite.scale = Vector2(2.0,2.0)
+	set_menu_visible(!isvis)
+
+func set_menu_visible(isvis:bool=true):
+	menu_visible = isvis
+	menu_bg.visible=isvis
+
+
+func _on_button_flip_pressed() -> void:
+	if menu_bg.visible:
+		toggle_concealment()
+
+
+func _on_button_damage_pressed() -> void:
+	if menu_bg.visible:
+		take_damage(1)
+
+
+func _on_button_heal_pressed() -> void:
+	if menu_bg.visible:
+		heal()
+
+
+func _on_button_buff_pressed() -> void:
+	if menu_bg.visible:
+		buff(1)
+
+
+func _on_button_debuff_pressed() -> void:
+	if menu_bg.visible:
+		buff(-1)

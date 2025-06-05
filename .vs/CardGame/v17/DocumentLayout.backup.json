@@ -1,21 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\black\\Documents\\cardgame\\",
+  "WorkspaceRootPath": "C:\\Repos\\card-game\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BC8832A4-B50E-4A61-B746-DAD7EDBFA69A}|CardGame.csproj|c:\\users\\black\\documents\\cardgame\\globalmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BC8832A4-B50E-4A61-B746-DAD7EDBFA69A}|CardGame.csproj|c:\\repos\\card-game\\globalmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC8832A4-B50E-4A61-B746-DAD7EDBFA69A}|CardGame.csproj|solutionrelative:globalmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC8832A4-B50E-4A61-B746-DAD7EDBFA69A}|CardGame.csproj|c:\\users\\black\\documents\\cardgame\\gamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BC8832A4-B50E-4A61-B746-DAD7EDBFA69A}|CardGame.csproj|c:\\repos\\card-game\\gamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC8832A4-B50E-4A61-B746-DAD7EDBFA69A}|CardGame.csproj|solutionrelative:gamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC8832A4-B50E-4A61-B746-DAD7EDBFA69A}|CardGame.csproj|c:\\users\\black\\documents\\cardgame\\cardbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC8832A4-B50E-4A61-B746-DAD7EDBFA69A}|CardGame.csproj|solutionrelative:cardbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC8832A4-B50E-4A61-B746-DAD7EDBFA69A}|CardGame.csproj|c:\\users\\black\\documents\\cardgame\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BC8832A4-B50E-4A61-B746-DAD7EDBFA69A}|CardGame.csproj|c:\\repos\\card-game\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC8832A4-B50E-4A61-B746-DAD7EDBFA69A}|CardGame.csproj|solutionrelative:playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -32,34 +28,22 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "GlobalManager.cs",
-              "DocumentMoniker": "C:\\Users\\black\\Documents\\cardgame\\GlobalManager.cs",
+              "DocumentMoniker": "C:\\Repos\\card-game\\GlobalManager.cs",
               "RelativeDocumentMoniker": "GlobalManager.cs",
-              "ToolTip": "C:\\Users\\black\\Documents\\cardgame\\GlobalManager.cs*",
-              "RelativeToolTip": "GlobalManager.cs*",
-              "ViewState": "AgIAAOUAAAAAAAAAAAAQwP8AAAAFAAAAAAAAAA==",
+              "ToolTip": "C:\\Repos\\card-game\\GlobalManager.cs",
+              "RelativeToolTip": "GlobalManager.cs",
+              "ViewState": "AgIAAP4AAAAAAAAAAAAgwAUBAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-16T17:59:19.123Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CardBase.cs",
-              "DocumentMoniker": "C:\\Users\\black\\Documents\\cardgame\\CardBase.cs",
-              "RelativeDocumentMoniker": "CardBase.cs",
-              "ToolTip": "C:\\Users\\black\\Documents\\cardgame\\CardBase.cs",
-              "RelativeToolTip": "CardBase.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAYwDoAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T21:15:07.361Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "GameData.cs",
-              "DocumentMoniker": "C:\\Users\\black\\Documents\\cardgame\\GameData.cs",
+              "DocumentMoniker": "C:\\Repos\\card-game\\GameData.cs",
               "RelativeDocumentMoniker": "GameData.cs",
-              "ToolTip": "C:\\Users\\black\\Documents\\cardgame\\GameData.cs",
+              "ToolTip": "C:\\Repos\\card-game\\GameData.cs",
               "RelativeToolTip": "GameData.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -68,11 +52,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "PlayerData.cs",
-              "DocumentMoniker": "C:\\Users\\black\\Documents\\cardgame\\PlayerData.cs",
+              "DocumentMoniker": "C:\\Repos\\card-game\\PlayerData.cs",
               "RelativeDocumentMoniker": "PlayerData.cs",
-              "ToolTip": "C:\\Users\\black\\Documents\\cardgame\\PlayerData.cs",
+              "ToolTip": "C:\\Repos\\card-game\\PlayerData.cs",
               "RelativeToolTip": "PlayerData.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

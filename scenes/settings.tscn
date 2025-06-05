@@ -26,20 +26,26 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -140.0
-offset_right = 140.0
-offset_bottom = 34.0
+offset_left = -224.0
+offset_top = 81.0
+offset_right = 224.0
+offset_bottom = 343.0
 grow_horizontal = 2
 theme_type_variation = &"HeaderLarge"
 theme_override_font_sizes/font_size = 36
-text = "SETTINGS AND SHID"
+text = "SETTINGS AND SHID
+
+DONT USE THIS MENU 
+
+IT DONT WORK YET"
+horizontal_alignment = 1
 
 [node name="Button_Back" type="Button" parent="Panel_Background"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
-offset_right = 144.0
-offset_bottom = 47.0
+offset_right = 272.0
+offset_bottom = 144.0
 focus_mode = 0
 text = "BACK TO MENU"
 

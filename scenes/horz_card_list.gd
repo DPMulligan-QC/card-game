@@ -17,9 +17,11 @@ var selected_card:Card
 var recruiting:bool
 var from_standby:bool
 var search_deck:bool
+var copy:bool
 
-func set_args(card_input:Array[Card], recruit:bool, from_stand:bool, selection_make:bool, searching_deck:bool) -> void:
+func set_args(card_input:Array[Card], recruit:bool, from_stand:bool, selection_make:bool, searching_deck:bool, _copy:bool) -> void:
 	recruiting = recruit
+	copy=_copy
 	from_standby=from_stand
 	search_deck = searching_deck
 	if recruiting:
@@ -28,6 +30,8 @@ func set_args(card_input:Array[Card], recruit:bool, from_stand:bool, selection_m
 		label.text = "STANDBY ZONE.\nYOU MAY PAY 3CR TO SELECT A CARD AND RETURN IT TO YOUR HAND.\n"
 	elif searching_deck:
 		label.text = "SEARCHING DECK"
+	elif copy:
+		label.text = "COPY SELECTED CARD TO BOARD."
 	else:
 		label.text = "COLLECTION."
 	
