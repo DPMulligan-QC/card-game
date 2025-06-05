@@ -30,4 +30,21 @@ offset_bottom = 144.0
 focus_mode = 0
 text = "BACK TO MENU"
 
+[node name="GridContainer" type="GridContainer" parent="Panel_Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -622.5
+offset_top = -438.0
+offset_right = 622.5
+offset_bottom = 438.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 256
+theme_override_constants/v_separation = 256
+columns = 4
+
 [connection signal="pressed" from="Panel_Background/Button_Back" to="." method="_on_button_back_pressed"]

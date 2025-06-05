@@ -8,8 +8,7 @@ var deck:Deck
 var isAndroid:bool=false
 var fingie:Vector2 = Vector2(2.0,2.0)
 var standby_zone:Array[Card] = []
-
-var card_db:Array[Card]=[]
+var cards_db:Array[Card] = []
 
 var starting_life:int = 15
 var my_life:int = 15
@@ -178,19 +177,24 @@ func _input(event: InputEvent) -> void:
 func _ready() -> void:
 	my_credits = starting_credits
 	my_life = starting_life
-	for i in 83:
+	for i in global_manager.card_count:
 		card_db.push_back(global_manager.build_card_from_id(i))
 		
-	global_manager.random_deck(true)
-	global_manager.chosen_deck.shuffle()
+	deck=Deck.new()	
+
 #  TEST MODE ////////////////////////////			
 #	deck = global_manager.chosen_deck
 #  DRAFT MODE ////////////////////////////	
-	deck=Deck.new()
-	deck.set_args([])
-	next_draft()
-		
-	#draw_card(2)
+	if global_manager.drafting || global_manager.chosen_deck == null:
+		global_manager.random_deck(true)
+    	global_manager.chosen_deck.shuffle()
+		deck.set_args([])
+		next_draft()
+	#  CONSTRUCTED MODE ////////////////////////////	
+	else:
+		deck.load_deck(global_manager.chosen_deck.cards)
+		deck.shuffle()
+		#draw_card(2)
 
 func next_draft():
 	var subscene = load("res://scenes/horz_card_list.tscn")
@@ -237,6 +241,9 @@ func _on_button_next_turn_pressed() -> void:
 	my_credits= my_credits+5
 	refresh_credit_ui()
 	
+
+
+
 
 func _on_button_add_life_pressed() -> void:
 	my_life = my_life+1
@@ -294,6 +301,10 @@ func add_card_from_list_instance():
 	
 		
 	
+
+func murder_list_instance():
+	if list_instance:
+		get_tree().root.remove_child(list_instance)
 
 func _on_button_search_standby_pressed() -> void:
 	var subscene = load("res://scenes/horz_card_list.tscn")
@@ -364,6 +375,31 @@ func _on_button_reset_pressed() -> void:
 	refresh_enemy_life_ui()
 	refresh_life_ui()
 	refresh_credit_ui()
+
+func copy_card_from_list(listo:horz_list):
+	
+	if listo:
+		if listo.selected_card:
+			var subscene = load("res://scenes/card_mockup.tscn")
+			var card_scene:card_object = subscene.instantiate()
+			get_tree().root.add_child(card_scene)
+			cards_in_play.push_back(card_scene)
+			card_scene.set_args(listo.selected_card,0)
+		get_tree().root.remove_child(listo)
+
+func close_list(listo:horz_list):
+	if listo:
+		get_tree().root.remove_child(listo)
+
+
+func _on_button_add_card_pressed() -> void:
+	var subscene = load("res://scenes/horz_card_list.tscn")
+	var listo= subscene.instantiate() as horz_list
+	get_tree().root.add_child(listo)
+	listo.set_args(cards_db,false,false,true,false)
+	listo.canceled.connect(close_list.bind(listo))
+	listo.finished.connect(copy_card_from_list.bind(listo))
+	listo.scroll_container.position = Vector2(0.0,365.0)
 
 func on_list_choose(list:horz_list):
 	if list && list.selected_card:

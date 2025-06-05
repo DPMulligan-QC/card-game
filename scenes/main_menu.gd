@@ -33,7 +33,7 @@ func _on_button_deck_pressed() -> void:
 func _on_button_play_pressed() -> void:
 	#global_manager.give_current_slot_full_collection()
 	#global_manager.save_current_slot()
-	get_tree().change_scene_to_file("res://scenes/game_board.tscn")
+	get_tree().change_scene_to_file("res://scenes/diddle_mode_selection.tscn")
 #	var card_inventory:Array[int] = global_manager.get_current_slot_cards()
 #	
 #	for i in card_inventory:

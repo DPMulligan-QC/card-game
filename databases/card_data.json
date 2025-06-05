@@ -4,7 +4,7 @@
 		"restrict":5
 	},
 	"1":{
-		"name":"Medic", "cost":3, "type":0, "rarity":1,"text":"Reflex.\n\nUnveil: Heal all humans you control.  Gain 2 life.\n\nEliminate: The player that eliminated this unit loses 1cr.",
+		"name":"Medic", "cost":4, "type":0, "rarity":1,"text":"Reflex.\n\nUnveil: Heal all humans you control.  Gain 2 life.\n\nEliminate: The player that eliminated this unit loses 1cr.",
 		"attack":3, "training":2, "health":1, "restrict":5, "unveil":{"0":{"effect":"lifegain","data":2 },"1":{"effect":"heal_friendly_unit_type", "data":2}}, 
 		"eliminate":{"0":{"effect":"killer_pays", "data":1}}, "reflex":true
 	},
@@ -21,7 +21,7 @@
 		"restrict":5
 	},
 	"5":{
-		"name":"Traitor", "cost":3, "type":0, "rarity":1,"text":"unveil: Eliminate all cards in target player's standby zone.\n\nMaintenance: Lose the game.","attack":2, "training":1, "health":1,
+		"name":"Traitor", "cost":4, "type":0, "rarity":1,"text":"unveil: Eliminate all cards in target player's standby zone.\n\nMaintenance: Lose the game.","attack":2, "training":1, "health":1,
 		"restrict":5, "unveil":{"0":{"effect":"eliminate_player_standby"}}, "maintenance":{"0":{"effect":"lose_game"}}
 	},
 	"6":{
@@ -38,7 +38,7 @@
 		"flavor":"This cheap turret is flimsy and weak, but its targeting systems see what the human eye cannot."
 	},
 	"9":{
-		"name":"Smokescreen", "cost":1, "type":2, "rarity":0,"text":"Impulse: You may rearrange concealed units you control on the front line in any order.",
+		"name":"Economy of Scale", "cost":2, "type":2, "rarity":0,"text":"Impulse: Your cards cost 1cr less to play for each card in your graveyard with the same name.",
 		"restrict":5, "impulse":{"0":{"effect":"shuffle_friendly_concealed_units"}},
 	},
 	"10":{
@@ -82,7 +82,7 @@
 		"unveil":{"0":{"effect":"dmg_all_blockable_attacking","data":10 }},  "reflex":true,"delay":1, "flavor":"Heh, nothin' personnel, kid....."
 	},	
 	"20":{
-		"name":"Fundraiser", "cost":0, "type":4, "rarity":2,"text":"Gain 5cr.", 
+		"name":"Fundraiser", "cost":0, "type":4, "rarity":2,"text":"Gain 5cr.\n\nRestrict 1.", 
 		"unveil":{"0":{"effect":"owner_gains_money", "data":5}},"restrict":1
 	},	
 	"21":{
@@ -94,7 +94,7 @@
 		"unveil":{"0":{"effect":"recruit", "data":2}},"restrict":5
 	},
 	"23":{
-		"name":"Disrupt", "cost":3, "type":4, "rarity":1,"text":"Negate target unveil effect.", 
+		"name":"Disrupt", "cost":2, "type":4, "rarity":1,"text":"Negate target unveil effect.", 
 		"unveil":{"0":{"effect":"negate_unveil"}},"restrict":5
 	},	
 	"24":{
@@ -102,11 +102,11 @@
 		"unveil":{"0":{"effect":"damage_target_unit_or_arm", "data":3}},"restrict":5
 	},
 	"25":{
-		"name":"Experimental Stimulants", "cost":3, "type":2, "rarity":1,"text":"Impulse: unveil effects you control occur an additional time until the start of your next turn.", 
+		"name":"Stimulants", "cost":2, "type":2, "rarity":1,"text":"Impulse: unveil effects you control occur an additional time until the start of your next turn.", 
 		"impulse":{"0":{"effect":"unveil_repeat"}},"restrict":5
 	},
 	"26":{
-		"name":"Subsidy", "cost":8, "type":2, "rarity":1,"text":"Impulse: Units you control cost 2cr less to play this turn.  \nMaintenance costs are reduced by 1.", 
+		"name":"Subsidy", "cost":2, "type":2, "rarity":1,"text":"Impulse: Units cost 2cr less to play this turn.  \nMaintenance costs are reduced by 1cr.", 
 		"impulse":{"0":{"effect":"maintenance_reduce","data":1},"1":{"effect":"unit_reduce","data":2}},"restrict":5
 	},
 	"27":{
@@ -151,7 +151,7 @@
 	},
 	"37":{
 		"name":"Guard Tower", "cost":3, "type":5, "rarity":1,"text":"Capacity 1.\nThis card's attack is equal to X+1, where X is the attack of the unit that pilots it.\n\nImpulse: Unveil target card.  Negate its unveil effect.", 
-		"restrict":5, "attack":1, "training":2, "health":11
+		"restrict":5, "attack":1, "training":1, "health":11
 	},
 	"38":{
 		"name":"Light Combat Drone", "cost":2, "type":1, "rarity":0,"text":"Unblockable.\n\nAdvance: Deal 1 damage to any target.\n\nYou may play this unit directly from standby.", 
@@ -187,7 +187,7 @@
 		"restrict":5, "attack":4, "training":0, "health":6
 	},
 	"47":{
-		"name":"Cyber-attack: Rootkit", "cost":3, "type":2, "rarity":1,"text":"Impulse: Gain control of target armament or machine until this card leaves play or is concealed"
+		"name":"Cyber-attack: Rootkit", "cost":2, "type":3, "rarity":1,"text":"Unveil: Gain control of target armament or machine."
 	},
 	"48":{
 		"name":"Cyber-attack: Spyware", "cost":4, "type":3, "rarity":1,"text":"Delay 1.\n\nUnveil: Target opponent unveils all concealed cards they control.  Negate their exposure effects."
@@ -215,12 +215,12 @@
 		"restrict":5, "attack":0, "training":0, "health":3
 	},
 	"56":{
-		"name":"Cyber-attack: Hacker Savant", "cost":3, "type":0, "rarity":2,"text":"Immobile.\n\nUnveil: Search your deck for a Cyber-attack card, put it into play concealed, and shuffle.", 
+		"name":"Cyber-attack: Hacker", "cost":3, "type":0, "rarity":2,"text":"Immobile.\n\nUnveil: Search your deck for a Cyber-attack card, put it into play concealed, and shuffle.", 
 		"restrict":5, "attack":0, "training":0, "health":4
 	},
 	"57":{
-		"name":"Talent Acquisition Agent", "cost":1, "type":0, "rarity":1,"text":"Immobile.\n\nUnveil: Search your deck or standby zone for a human, add it to your hand, and shuffle. \nMaintenance: 1cr.", 
-		"restrict":5, "attack":0, "training":0, "health":3
+		"name":"Talent Acquisition Agent", "cost":2, "type":0, "rarity":1,"text":"Immobile.\n\nUnveil: Search your deck or standby zone for a human, add it to your hand, and shuffle.", 
+		"restrict":5, "attack":3, "training":0, "health":1
 	},
 	"58":{
 		"name":"Talent Acquisition", "cost":4, "type":4, "rarity":1,"text":"Search your deck or standby zone for a unit, add it to your hand, and shuffle."
@@ -312,5 +312,22 @@
 	"82":{
 		"name":"Combat Drone", "cost":3, "type":1, "rarity":1,"text":"Unblockable.\n\nAdvance: Deal 2 damage to any target.\n\nYou may play this unit directly from standby.", 
 		"restrict":5, "attack":0, "training":0, "health":3
-	}
+	},
+    "83":{
+        "name":"Manufacturing Contract", "cost":4, "type":2, "rarity":2,"text":"Experimental.\n\nWhenever an armament enters the front line under your control, you gain 4cr.",
+        "effect":{"0":{"effect":"armament_enters_gain_cr","data":4}},"restrict":5
+    },
+    "84":{
+        "name":"Modular Automaton", "cost":"XX", "type":1, "rarity":2,"text":"When this unit enters, it gains +X/+0/+X.\n\nUnveil: Deal X damage to any target.\n\nAdvance: Deal X damage to any target.",
+        "restrict":5, "attack":1, "training":0, "health":1
+    },
+    "85":{
+        "name":"Crunch Time", "cost":2, "type":2, "rarity":1,"text":"All impulse effects trigger an additional time.",
+       "effect":{"0":{"effect":"extra_impulse","data":1}},"restrict":5
+    },
+    "86":{
+        "name":"On-site Training", "cost":1, "type":2, "rarity":1,"text":"Humans you control have a training value of 3.",
+        "restrict":5
+    }
+  
 }
