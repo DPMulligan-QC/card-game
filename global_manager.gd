@@ -6,7 +6,7 @@ var gm = gmPath.new()
 
 var card_count:int = gm.GetCardCount()
 var current_slot:int
-
+var drafting:bool = true
 var chosen_deck:Deck
 var credits:int
 var life:int
@@ -75,8 +75,24 @@ func random_deck(use_collection:bool):
 	chosen_deck.cards.shuffle()
 	
 
+
 func start_diddle():
 	credits = 5
 	life = 15
 	if !chosen_deck:
 		random_deck(true)
+		
+
+func save_deck(cards:Dictionary, name:String) -> bool:
+	return gm.AddNewDeck(cards,name)
+	
+func get_deck(cards:Dictionary, name:String) -> Array[Card]: #id,number
+	var output:Array[Card] = []
+	var dicc:Dictionary = gm.GetDeck(name)
+	var arr:Array[int] = dicc.keys()
+	for i in arr:
+		for n in dicc[i]:
+			output.push_back(build_card_from_id(i))
+		
+	return output
+	

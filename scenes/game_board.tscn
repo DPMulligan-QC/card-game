@@ -348,6 +348,28 @@ text = "SCOOP
 RESET"
 metadata/_edit_use_anchors_ = true
 
+[node name="Button_Add_Card" type="Button" parent="PanelContainer/Panel"]
+z_index = -3
+z_as_relative = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.003125
+anchor_top = 0.660648
+anchor_right = 0.003125
+anchor_bottom = 0.660648
+offset_top = -36.5
+offset_right = 117.0
+offset_bottom = 36.5
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("2_3wu0g")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_cmh4g")
+text = "COPY
+ANY
+CARD"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="PanelContainer/Panel/Label_My_Credits/Button_Add_Credit" to="." method="_on_button_add_credit_pressed"]
 [connection signal="pressed" from="PanelContainer/Panel/Label_My_Credits/Button_Next_Turn" to="." method="_on_button_next_turn_pressed"]
 [connection signal="pressed" from="PanelContainer/Panel/Label_My_Credits/Button_Lose_Credit" to="." method="_on_button_lose_credit_pressed"]
@@ -360,3 +382,4 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="PanelContainer/Panel/Panel_My_Deck/Button_Shuffle" to="." method="_on_button_shuffle_pressed"]
 [connection signal="pressed" from="PanelContainer/Panel/Sprite2D_Standby/Button_Search_Standby" to="." method="_on_button_search_standby_pressed"]
 [connection signal="pressed" from="PanelContainer/Panel/Button_Reset" to="." method="_on_button_reset_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel/Button_Add_Card" to="." method="_on_button_add_card_pressed"]

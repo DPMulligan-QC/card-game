@@ -9,7 +9,7 @@ public partial class CardBase : Node
     public string name { get; set; }
     public string description { get; set; }
     public string imagePath { get; set; }
-    public byte cost { get; set; }
+    public string cost { get; set; }
     public byte restrict { get; set; }
     public byte develop { get; set; }
     public byte attack { get; set; }
@@ -43,23 +43,23 @@ public partial class CardBase : Node
     }
 
 
-    public void PopulateData(int _id, string _name, string _description, int _cost, int _attack, int _training, int _health, int _type)
+    public void PopulateData(int _id, string _name, string _description, string _cost, int _attack, int _training, int _health, int _type)
     {
         id = (ushort)_id;
         name = _name;
         description = _description;
-        cost = (byte)_cost;
+        cost = (string)_cost;
         attack = (byte)_attack;
         training = (byte)_training;
         health = (byte)_health;
         type = (CARD_TYPE)_type;
     }
-    public void PopulateData(int _id, string _name, string _description, int _cost,int _type)
+    public void PopulateData(int _id, string _name, string _description, string _cost,int _type)
     {
         id = (ushort)_id;
         name = _name;
         description = _description;
-        cost = (byte)_cost;
+        cost = (string)_cost;
         type = (CARD_TYPE)_type;
     }
 

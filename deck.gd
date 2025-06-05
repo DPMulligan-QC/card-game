@@ -9,6 +9,8 @@ func set_args(card_input:Array[int]) -> void:
 func shuffle():
 	cards.shuffle()
 	
+func load_deck(card_input:Array[Card]):
+	cards = card_input
 
 func recruit(size:int)->Array[Card]:
 	var output:Array[Card] = []

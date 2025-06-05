@@ -12,6 +12,7 @@ config_version=5
 
 config/name="CardGame"
 config/version="0.0.001"
+config/tags=PackedStringArray("ongoing")
 run/main_scene="uid://ph8lv48u78r6"
 config/features=PackedStringArray("4.4", "C#", "Mobile")
 boot_splash/bg_color=Color(0, 0, 0, 1)
@@ -27,6 +28,7 @@ global_manager="*res://global_manager.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/stretch/mode="viewport"
 
 [dotnet]
 

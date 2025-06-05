@@ -39,7 +39,12 @@ func populate_base(_id:int, _json_path:String  = "res://databases/card_data.json
 		
 		var _name:String = const_card_data["name"]
 		var _description:String = const_card_data["text"]
-		var _cost:int = const_card_data["cost"]
+		var _cost:String
+		var temp = const_card_data["cost"]
+		if typeof(temp)==TYPE_FLOAT:
+			_cost = str(int(temp))
+		else:
+			_cost = str(temp)
 		var _type:int = const_card_data["type"]
 
 		if _type==0 || _type==1|| _type==5|| _type==6:

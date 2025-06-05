@@ -259,7 +259,7 @@ public partial class GlobalManager : Node
     //CARD LIBRARY INFORMATION ////////////////////////////////////////////////////////////////////
 
 
-    public const int CARD_COUNT = 60;  //42->60
+    public const int CARD_COUNT = 86;  //42->60->85
     public enum CARD_RARITY { RARITY_COMMON, RARITY_UNCOMMON, RARITY_RARE };
     public enum CARD_TYPE { UNIT_MAN, UNIT_MACHINE, TACTIC_FIELD, TACTIC_TRAP, TACTIC_INSTANT, ARMAMENT_VEHICLE, ARMAMENT_WEAPON };
 
