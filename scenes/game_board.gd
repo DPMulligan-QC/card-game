@@ -50,30 +50,30 @@ func raycast_for_card():
 	return null
 
 func _input(event: InputEvent) -> void:
-#	if event is InputEventMouseButton:
-#		if event.button_index == MOUSE_BUTTON_LEFT || event.button_index == MOUSE_BUTTON_RIGHT:
-#			if event.pressed:
-#				var card = raycast_for_card()
-#				if card:
-#					dragged_card = card
-#					if !dragged_card.concealed:
-#						if event.button_index == MOUSE_BUTTON_RIGHT:
-#							dragged_card.parent_sprite.scale = Vector2(2.0,2.0)
-#						for card_get in cards_in_play:
-#							card_get.z_index = 0
-#						for card_get in card_tokens_in_play:
-#							card_get.z_index = 0
-#						dragged_card.z_index = 1
-#			elif dragged_card:
-#				if event.button_index == MOUSE_BUTTON_RIGHT:	
-#					dragged_card.parent_sprite.scale = Vector2(1.0,1.0)
-#				if dragged_card.area.overlaps_area(standby_zone_area):
-#					dragged_card.visible = false
-#					standby_zone.push_front(dragged_card.card)
-#					cards_in_play.erase(dragged_card)
-#					get_tree().root.remove_child(dragged_card)
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT || event.button_index == MOUSE_BUTTON_RIGHT:
+			if event.pressed:
+				var card = raycast_for_card()
+				if card:
+					dragged_card = card
+					if !dragged_card.concealed:
+						if event.button_index == MOUSE_BUTTON_RIGHT:
+							dragged_card.parent_sprite.scale = Vector2(2.0,2.0)
+						for card_get in cards_in_play:
+							card_get.z_index = 0
+						for card_get in card_tokens_in_play:
+							card_get.z_index = 0
+						dragged_card.z_index = 1
+			elif dragged_card:
+				if event.button_index == MOUSE_BUTTON_RIGHT:	
+					dragged_card.parent_sprite.scale = Vector2(1.0,1.0)
+				if dragged_card.area.overlaps_area(standby_zone_area):
+					dragged_card.visible = false
+					standby_zone.push_front(dragged_card.card)
+					cards_in_play.erase(dragged_card)
+					get_tree().root.remove_child(dragged_card)
 					#dragged_card.queue_free()
-#				dragged_card=null
+				dragged_card=null
 	if event is InputEventKey && event.pressed:
 		
 		var card = raycast_for_card()
@@ -178,7 +178,7 @@ func _ready() -> void:
 	my_credits = starting_credits
 	my_life = starting_life
 	for i in global_manager.card_count:
-		card_db.push_back(global_manager.build_card_from_id(i))
+		cards_db.push_back(global_manager.build_card_from_id(i))
 		
 	deck=Deck.new()	
 
@@ -187,7 +187,7 @@ func _ready() -> void:
 #  DRAFT MODE ////////////////////////////	
 	if global_manager.drafting || global_manager.chosen_deck == null:
 		global_manager.random_deck(true)
-    	global_manager.chosen_deck.shuffle()
+		global_manager.chosen_deck.shuffle()
 		deck.set_args([])
 		next_draft()
 	#  CONSTRUCTED MODE ////////////////////////////	
@@ -396,7 +396,7 @@ func _on_button_add_card_pressed() -> void:
 	var subscene = load("res://scenes/horz_card_list.tscn")
 	var listo= subscene.instantiate() as horz_list
 	get_tree().root.add_child(listo)
-	listo.set_args(cards_db,false,false,true,false)
+	listo.set_args(cards_db,false,false,true,false,true)
 	listo.canceled.connect(close_list.bind(listo))
 	listo.finished.connect(copy_card_from_list.bind(listo))
 	listo.scroll_container.position = Vector2(0.0,365.0)
@@ -450,7 +450,7 @@ func _on_button_copy_card_pressed() -> void:
 	var subscene = load("res://scenes/horz_card_list.tscn")
 	list_instance= subscene.instantiate() as horz_list
 	get_tree().root.add_child(list_instance)
-	list_instance.set_args(card_db,false,false,true,false,true)
+	list_instance.set_args(cards_db,false,false,true,false,true)
 	list_instance.canceled.connect(on_list_cancel.bind(list_instance))
 	list_instance.finished.connect(on_list_choose.bind(list_instance))
 

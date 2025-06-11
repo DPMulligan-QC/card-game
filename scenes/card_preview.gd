@@ -2,7 +2,7 @@ extends Node
 class_name card_preview
 
 var card_type:int
-
+var in_editor:bool = false
 var can_be_selected:bool
 @onready var label_name:Label = $Panel_Cover/Label_Name
 @onready var label_cost:Label = $Panel_Cover/Label_Cost
@@ -19,7 +19,13 @@ var health:int
 var selected:bool = false
 var card:Card
 
+var editor:deck_editor
+signal added
 func _ready() -> void:
+	if in_editor:
+		button.toggle_mode = false
+		button.focus_mode = Control.FOCUS_NONE
+
 	populate()
 
 func set_args(input:Card, this_is_selectable:bool, _list:horz_list):
@@ -27,6 +33,8 @@ func set_args(input:Card, this_is_selectable:bool, _list:horz_list):
 	#button.disabled = !can_be_selected
 	card = input
 	list=_list
+	if button:
+		button.pressed.disconnect(_on_button_pressed)
 	
 
 func unpress():
@@ -35,8 +43,11 @@ func unpress():
 
 
 
+func set_args_collection(input:Card, _editor:deck_editor ):
+	in_editor = true
+	card = input
+	editor = _editor
 
-		
 
 
 func populate():
@@ -75,10 +86,18 @@ func populate():
 
 func _on_button_toggled(toggled_on: bool) -> void:
 	selected = toggled_on
-	if selected:
-		list.deselect_all_previews()
-		list.selected_card = card
-		list.selected_card_preview = self
-	else:
-		list.selected_card = null
-		list.selected_card_preview = null
+	if list:
+		if selected:
+			list.deselect_all_previews()
+			list.selected_card = card
+			list.selected_card_preview = self
+		else:
+			list.selected_card = null
+			list.selected_card_preview = null
+			
+
+
+
+
+func _on_button_pressed() -> void:
+	added.emit()

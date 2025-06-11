@@ -166,4 +166,5 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_yx2ii")
 toggle_mode = true
 action_mode = 0
 
+[connection signal="pressed" from="Panel_Cover/Button" to="." method="_on_button_pressed"]
 [connection signal="toggled" from="Panel_Cover/Button" to="." method="_on_button_toggled"]

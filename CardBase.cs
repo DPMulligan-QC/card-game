@@ -10,7 +10,7 @@ public partial class CardBase : Node
     public string description { get; set; }
     public string imagePath { get; set; }
     public string cost { get; set; }
-    public byte restrict { get; set; }
+    public int restrict { get; set; }
     public byte develop { get; set; }
     public byte attack { get; set; }
     public byte training { get; set; }
@@ -42,7 +42,18 @@ public partial class CardBase : Node
         isExposed = false;
     }
 
-
+    public void PopulateData(int _id, string _name, string _description, string _cost, int _attack, int _training, int _health, int _type, int _restrict)
+    {
+        id = (ushort)_id;
+        name = _name;
+        description = _description;
+        cost = (string)_cost;
+        attack = (byte)_attack;
+        training = (byte)_training;
+        health = (byte)_health;
+        type = (CARD_TYPE)_type;
+        restrict = _restrict;
+    }
     public void PopulateData(int _id, string _name, string _description, string _cost, int _attack, int _training, int _health, int _type)
     {
         id = (ushort)_id;
@@ -61,6 +72,15 @@ public partial class CardBase : Node
         description = _description;
         cost = (string)_cost;
         type = (CARD_TYPE)_type;
+    }
+    public void PopulateData(int _id, string _name, string _description, string _cost, int _type, int _restrict)
+    {
+        id = (ushort)_id;
+        name = _name;
+        description = _description;
+        cost = (string)_cost;
+        type = (CARD_TYPE)_type;
+        restrict = _restrict;
     }
 
     public int GetCardType()

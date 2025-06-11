@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\black\\Documents\\cardgame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BC8832A4-B50E-4A61-B746-DAD7EDBFA69A}|CardGame.csproj|c:\\users\\black\\documents\\cardgame\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC8832A4-B50E-4A61-B746-DAD7EDBFA69A}|CardGame.csproj|solutionrelative:playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BC8832A4-B50E-4A61-B746-DAD7EDBFA69A}|CardGame.csproj|c:\\users\\black\\documents\\cardgame\\globalmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC8832A4-B50E-4A61-B746-DAD7EDBFA69A}|CardGame.csproj|solutionrelative:globalmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC8832A4-B50E-4A61-B746-DAD7EDBFA69A}|CardGame.csproj|c:\\users\\black\\documents\\cardgame\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC8832A4-B50E-4A61-B746-DAD7EDBFA69A}|CardGame.csproj|solutionrelative:playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BC8832A4-B50E-4A61-B746-DAD7EDBFA69A}|CardGame.csproj|c:\\users\\black\\documents\\cardgame\\cardbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,17 +26,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "GlobalManager.cs",
               "DocumentMoniker": "C:\\Users\\black\\Documents\\cardgame\\GlobalManager.cs",
               "RelativeDocumentMoniker": "GlobalManager.cs",
               "ToolTip": "C:\\Users\\black\\Documents\\cardgame\\GlobalManager.cs",
               "RelativeToolTip": "GlobalManager.cs",
-              "ViewState": "AgIAALkAAAAAAAAAAAAqwOAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAUwGsBAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-16T17:59:19.123Z",
               "EditorCaption": ""
@@ -49,7 +49,7 @@
               "RelativeDocumentMoniker": "CardBase.cs",
               "ToolTip": "C:\\Users\\black\\Documents\\cardgame\\CardBase.cs",
               "RelativeToolTip": "CardBase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-14T21:15:07.361Z",
               "EditorCaption": ""
@@ -62,19 +62,20 @@
               "RelativeDocumentMoniker": "GameData.cs",
               "ToolTip": "C:\\Users\\black\\Documents\\cardgame\\GameData.cs",
               "RelativeToolTip": "GameData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T19:56:33.25Z"
+              "WhenOpened": "2025-05-14T19:56:33.25Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "PlayerData.cs",
               "DocumentMoniker": "C:\\Users\\black\\Documents\\cardgame\\PlayerData.cs",
               "RelativeDocumentMoniker": "PlayerData.cs",
               "ToolTip": "C:\\Users\\black\\Documents\\cardgame\\PlayerData.cs",
               "RelativeToolTip": "PlayerData.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwDQAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-14T19:56:19.135Z",
               "EditorCaption": ""

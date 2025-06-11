@@ -68,6 +68,7 @@ theme_override_font_sizes/font_size = 36
 text = "MODE SELECTION"
 
 [node name="Button_Back" type="Button" parent="Panel_Background"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 144.0

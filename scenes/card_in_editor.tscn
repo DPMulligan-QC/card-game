@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://diiwvu7vlmgdx"]
+
+[ext_resource type="Script" uid="uid://fc7wmq6mh04y" path="res://scenes/card_in_editor.gd" id="1_beto2"]
+[ext_resource type="Theme" uid="uid://bdhp2uvk0sxwp" path="res://themes/war_theme.tres" id="2_tkuee"]
+[ext_resource type="StyleBox" uid="uid://b63fflktoqcay" path="res://themes/new_style_box_neon_blue_outline.tres" id="3_hf7k7"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_beto2")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 493.0
+offset_bottom = 32.0
+theme = ExtResource("2_tkuee")
+theme_override_styles/normal = ExtResource("3_hf7k7")
+text = "DECKNAME"

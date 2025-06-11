@@ -2,7 +2,9 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 using static GlobalManager;
+using static Godot.OpenXRHand;
 
 [GlobalClass]
 public partial class GlobalManager : Node
@@ -24,7 +26,7 @@ public partial class GlobalManager : Node
 
 	public static string[] slotNames = new string[4];
 
-
+	public static int currentSlot = 1;
 
 	public override void _Ready()
 	{
@@ -144,12 +146,13 @@ public partial class GlobalManager : Node
 					Newtonsoft.Json.JsonConvert.PopulateObject(jsonString, loadedPlayerDataSlot2);
 					slotNames[2] = loadedPlayerDataSlot2.playerName;
 					GD.Print("SLOT 2 LOADED, NAME =  " + slotNames[2]);
-				}
+                }
 				if (slotNum == 3) { 
 					Newtonsoft.Json.JsonConvert.PopulateObject(jsonString, loadedPlayerDataSlot3);
 					slotNames[3] = loadedPlayerDataSlot3.playerName;
 					GD.Print("SLOT 3 LOADED, NAME =  " + slotNames[3]);
-				}
+                    
+                }
 			}
 		}
 
@@ -235,7 +238,8 @@ public partial class GlobalManager : Node
 	public static void LoadProfileToCurrent(int slotNum)
 	{
 		Load(SAVE_TYPE.PLAYER, slotNum);
-	}
+        currentSlot = slotNum;
+    }
 
 	public static string GetName(int slotNum)
 	{
@@ -320,8 +324,51 @@ public partial class GlobalManager : Node
 
 	}
 
+	public int SavedDeckCount()
+	{
+		return currentPlayerData.savedDecks.Count();
+	}
 
-	//GAME INFO ////////////////////////////////////////////////////////////////////
+	public Godot.Collections.Dictionary<ushort, byte> GetCardDict(string _name)
+	{
+		return currentPlayerData.savedDecks[_name];
+	}
 
-	public enum ZONE { DECK, HAND, FRONT_LINE, STANDBY, GRAVEYARD};
+    public Godot.Collections.Dictionary<ushort, byte> GetCardDict(int index)
+    {
+		string[] keysToArray = currentPlayerData.savedDecks.Keys.ToArray<string>();
+        return currentPlayerData.savedDecks[keysToArray[index]];
+    }
+
+	public string GetDeckNameFromIndex(int index)
+	{
+        return currentPlayerData.savedDecks.Keys.ToArray<string>()[index];
+    }
+	public bool HasDeck(string _name)
+	{
+		return currentPlayerData.savedDecks.ContainsKey(_name);
+
+	}
+	public bool AddNewDeck(Godot.Collections.Dictionary<ushort, byte>  cards, string name)
+	{
+		bool output = currentPlayerData.AddNewDeck(cards, name);
+		SaveToSlot(currentSlot);
+
+		return output;
+	}
+
+	public void DeleteDeck(string name)
+	{
+		if (currentPlayerData.savedDecks.ContainsKey(name)){
+			currentPlayerData.savedDecks.Remove(name);
+            SaveToSlot(currentSlot);
+
+        }
+
+    }
+
+
+    //GAME INFO ////////////////////////////////////////////////////////////////////
+
+    public enum ZONE { DECK, HAND, FRONT_LINE, STANDBY, GRAVEYARD};
 }

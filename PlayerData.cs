@@ -10,7 +10,8 @@ public class PlayerData
     public string playerName;
     public Godot.Collections.Dictionary<ushort, byte> cardInventory = new Godot.Collections.Dictionary<ushort, byte>();
     //<card id, number in collection (max is 5)>
-    public Godot.Collections.Dictionary<string, Godot.Collections.Dictionary<ushort, byte>> savedDecks;
+    public Godot.Collections.Dictionary<string, Godot.Collections.Dictionary<ushort, byte>> savedDecks = new Godot.Collections.Dictionary<string, Godot.Collections.Dictionary<ushort, byte>>();
+
     enum GAMETYPE { DIDDLE_CARDS, REAL_GAME }
     //game settings
     GAMETYPE gametype = GAMETYPE.DIDDLE_CARDS;

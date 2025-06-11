@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://djjhtplom2l1g"]
+[gd_scene load_steps=4 format=3 uid="uid://djjhtplom2l1g"]
 
+[ext_resource type="Script" uid="uid://fg3jdrianetb" path="res://scenes/deckbuilding_cardlist.gd" id="1_jc4ds"]
 [ext_resource type="Theme" uid="uid://bdhp2uvk0sxwp" path="res://themes/war_theme.tres" id="1_q6e07"]
-[ext_resource type="StyleBox" uid="uid://dsacbf4u48l6j" path="res://themes/new_style_box_neon_green_outline.tres" id="2_jc4ds"]
+[ext_resource type="StyleBox" uid="uid://bqinv653pww8w" path="res://themes/new_style_box_neon_red_outline.tres" id="3_jc4ds"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -10,8 +11,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jc4ds")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel_Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_q6e07")
+
+[node name="Panel_Side" type="Panel" parent="Panel_Background"]
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -21,18 +32,218 @@ offset_left = -493.0
 grow_horizontal = 0
 grow_vertical = 2
 theme = ExtResource("1_q6e07")
+theme_override_styles/panel = ExtResource("3_jc4ds")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+[node name="ScrollContainer_Deck" type="ScrollContainer" parent="Panel_Background/Panel_Side"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 115.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("2_jc4ds")
+theme_override_styles/panel = ExtResource("3_jc4ds")
 horizontal_scroll_mode = 0
 
-[node name="card_list" type="VBoxContainer" parent="Panel/ScrollContainer"]
+[node name="card_list_deck" type="VBoxContainer" parent="Panel_Background/Panel_Side/ScrollContainer_Deck"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
+theme_override_constants/separation = 32
+
+[node name="LineEdit" type="LineEdit" parent="Panel_Background/Panel_Side"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 35.0
+offset_right = 296.0
+offset_bottom = 83.0
+theme = ExtResource("1_q6e07")
+placeholder_text = "New Deck"
+alignment = 1
+
+[node name="LineEdit_Search" type="LineEdit" parent="Panel_Background/Panel_Side"]
+layout_mode = 0
+offset_left = -824.0
+offset_top = 62.0
+offset_right = -440.0
+offset_bottom = 110.0
+theme = ExtResource("1_q6e07")
+placeholder_text = "..."
+alignment = 1
+
+[node name="Label_CardType" type="Label" parent="Panel_Background/Panel_Side/LineEdit_Search"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = -37.0
+offset_right = 80.0
+offset_bottom = -3.0
+grow_horizontal = 2
+text = "SEARCH:"
+horizontal_alignment = 1
+
+[node name="Button_Save" type="Button" parent="Panel_Background/Panel_Side"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -196.0
+offset_top = 9.0
+offset_right = -4.0
+offset_bottom = 105.0
+grow_horizontal = 0
+theme = ExtResource("1_q6e07")
+text = "SAVE & EXIT"
+
+[node name="Button_Delete" type="Button" parent="Panel_Background"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -112.0
+offset_right = 208.0
+offset_bottom = -16.0
+grow_vertical = 0
+theme = ExtResource("1_q6e07")
+text = "DELETE DECK"
+
+[node name="Button_Cancel" type="Button" parent="Panel_Background"]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 208.0
+offset_bottom = 112.0
+theme = ExtResource("1_q6e07")
+text = "EXIT"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel_Background"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -404.0
+offset_right = -607.0
+offset_bottom = 362.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical_scroll_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Panel_Background/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+theme_override_constants/h_separation = 258
+theme_override_constants/v_separation = 358
+columns = 5
+
+[node name="Label_Count" type="Label" parent="Panel_Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -395.0
+offset_top = 990.0
+offset_right = 22.0
+offset_bottom = 1035.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "0 / 50 CARDS MINIMUM"
+
+[node name="OptionButton_CardType" type="OptionButton" parent="Panel_Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -668.0
+offset_top = 64.0
+offset_right = -412.0
+offset_bottom = 112.0
+grow_horizontal = 2
+alignment = 1
+selected = 0
+item_count = 11
+popup/item_0/text = "ALL"
+popup/item_0/id = 0
+popup/item_1/text = "UNITS"
+popup/item_1/id = 1
+popup/item_2/text = "UNIT- MAN"
+popup/item_2/id = 2
+popup/item_3/text = "UNIT - MACHINE"
+popup/item_3/id = 3
+popup/item_4/text = "TACTICS"
+popup/item_4/id = 4
+popup/item_5/text = "TACTIC - FIELD"
+popup/item_5/id = 5
+popup/item_6/text = "TACTIC - TRAP"
+popup/item_6/id = 6
+popup/item_7/text = "TACTIC - INSTANT"
+popup/item_7/id = 7
+popup/item_8/text = "ARMAMENTS"
+popup/item_8/id = 8
+popup/item_9/text = "ARMAMENT - WEAPON"
+popup/item_9/id = 9
+popup/item_10/text = "ARMAMENT - VEHICLE"
+popup/item_10/id = 10
+
+[node name="Label_CardType" type="Label" parent="Panel_Background/OptionButton_CardType"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = -37.0
+offset_right = 80.0
+offset_bottom = -3.0
+grow_horizontal = 2
+text = "CARD TYPE:"
+
+[node name="OptionButton_SortBy" type="OptionButton" parent="Panel_Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 94.0
+offset_top = 64.0
+offset_right = 420.0
+offset_bottom = 112.0
+grow_horizontal = 2
+alignment = 1
+selected = 0
+item_count = 6
+popup/item_0/text = "ID - ASCENDING"
+popup/item_0/id = 0
+popup/item_1/text = "ID - DESCENDING"
+popup/item_1/id = 1
+popup/item_2/text = "COST - ASCENDING"
+popup/item_2/id = 2
+popup/item_3/text = "COST - DESCENDING"
+popup/item_3/id = 3
+popup/item_4/text = "A - Z"
+popup/item_4/id = 4
+popup/item_5/text = "Z - A"
+popup/item_5/id = 5
+
+[node name="Label_SortBy" type="Label" parent="Panel_Background/OptionButton_SortBy"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = -37.0
+offset_right = 80.0
+offset_bottom = -3.0
+grow_horizontal = 2
+text = "SORT BY:"
+horizontal_alignment = 1
+
+[connection signal="text_changed" from="Panel_Background/Panel_Side/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="text_changed" from="Panel_Background/Panel_Side/LineEdit_Search" to="." method="_on_line_edit_search_text_changed"]
+[connection signal="pressed" from="Panel_Background/Panel_Side/Button_Save" to="." method="_on_button_save_pressed"]
+[connection signal="pressed" from="Panel_Background/Button_Delete" to="." method="_on_button_delete_pressed"]
+[connection signal="pressed" from="Panel_Background/Button_Cancel" to="." method="_on_button_cancel_pressed"]
+[connection signal="item_selected" from="Panel_Background/OptionButton_CardType" to="." method="_on_option_button_card_type_item_selected"]
+[connection signal="item_selected" from="Panel_Background/OptionButton_SortBy" to="." method="_on_option_button_sort_by_item_selected"]

@@ -10,6 +10,7 @@ func _on_button_constructed_pressed() -> void:
 	global_manager.drafting = false
 	var subscene = load("res://scenes/card_collection.tscn")
 	var collection_instance:my_decks= subscene.instantiate() as my_decks
+	collection_instance.set_args(true)
 	get_tree().root.add_child(collection_instance)
 	collection_instance.cancelled.connect(constructed_cancelled.bind(collection_instance))
 	collection_instance.selected.connect(on_deck_selected.bind(collection_instance, collection_instance.cards_selected))

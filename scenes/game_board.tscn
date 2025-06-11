@@ -68,9 +68,9 @@ text = "+"
 z_index = -3
 z_as_relative = false
 layout_mode = 0
-offset_left = 6.0
+offset_left = 33.5
 offset_top = -58.0
-offset_right = 131.0
+offset_right = 158.5
 offset_bottom = -26.0
 focus_mode = 0
 theme = ExtResource("2_3wu0g")
@@ -300,8 +300,7 @@ offset_bottom = -677.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/normal = ExtResource("6_qmxhh")
-text = "DECLARED 
-ATTACKER
+text = "ADVANCING
 ZONE"
 horizontal_alignment = 1
 vertical_alignment = 1

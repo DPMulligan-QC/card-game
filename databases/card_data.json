@@ -1,333 +1,391 @@
 {
 	"0":{
 		"name":"Soldier", "cost":1, "type":0, "rarity":0,"text":"","attack":2, "training":2, "health":2,
-		"restrict":5
+		"restrict":5,"tags":{"0":"Vanilla"}
 	},
 	"1":{
 		"name":"Medic", "cost":4, "type":0, "rarity":1,"text":"Reflex.\n\nUnveil: Heal all humans you control.  Gain 2 life.\n\nEliminate: The player that eliminated this unit loses 1cr.",
 		"attack":3, "training":2, "health":1, "restrict":5, "unveil":{"0":{"effect":"lifegain","data":2 },"1":{"effect":"heal_friendly_unit_type", "data":2}}, 
-		"eliminate":{"0":{"effect":"killer_pays", "data":1}}, "reflex":true
+		"eliminate":{"0":{"effect":"killer_pays", "data":1}}, "reflex":true,"tags":{"0":"Unveil","1":"Reflex","2":"Eliminate"}
 	},
 	"2":{
 		"name":"Creative Storyteller", "cost":2, "type":0, "rarity":0,"text":"Advance: Recruit 1.","attack":2, "training":1, "health":2,
-		"restrict":5,"advance":{"0":{"effect":"recruit","data":1}}
+		"restrict":5,"advance":{"0":{"effect":"recruit","data":1}},"tags":{"0":"Advance","1":"Recruit"}
 	},
 	"3":{
-		"name":"Sniper", "cost":4, "type":0, "rarity":0,"text":"Unveil: Deal 9 damage to target unit.","attack":1, "training":1, "health":10,
-		"restrict":5, "unveil":{"0":{"effect":"damage_target_unit", "data":9}}
+		"name":"Sniper", "cost":4, "type":0, "rarity":0,"text":"Stealth.\n\nUnveil: Deal 9 damage to target unit.","attack":1, "training":1, "health":10,
+		"restrict":5, "unveil":{"0":{"effect":"damage_target_unit", "data":9}},"tags":{"0":"Stealth","1":"Unveil", "2":"Target Removal"}
 	},
 	"4":{
 		"name":"Armored Grenadier", "cost":6, "type":0, "rarity":0,"text":"","attack":10, "training":1, "health":8,
-		"restrict":5
+		"restrict":5,"tags":{"0":"Vanilla"}
 	},
 	"5":{
-		"name":"Traitor", "cost":4, "type":0, "rarity":1,"text":"unveil: Eliminate all cards in target player's standby zone.\n\nMaintenance: Lose the game.","attack":2, "training":1, "health":1,
-		"restrict":5, "unveil":{"0":{"effect":"eliminate_player_standby"}}, "maintenance":{"0":{"effect":"lose_game"}}
+		"name":"Traitor", "cost":4, "type":0, "rarity":1,"text":"Unveil: Eliminate all cards in target player's standby zone.\n\nMaintenance: Lose the game.","attack":2, "training":1, "health":1,
+		"restrict":5, "unveil":{"0":{"effect":"eliminate_player_standby"}}, "maintenance":{"0":{"effect":"lose_game"}},"tags":{"0":"Unveil","1":"Maintenance"}
 	},
 	"6":{
-		"name":"Intelligence Agent", "cost":4, "type":0, "rarity":1,"text":"Reflex.\nunveil: Negate target tactic.","attack":4, "training":3, "health":1,
-		"restrict":5,"reflex":true ,"unveil":{"0":{"effect":"negate_target_tactic", "data":1}},"maintenance":{"0":{"effect":"owner_pays", "data":2}}
+		"name":"Intelligence Agent", "cost":4, "type":0, "rarity":1,"text":"Reflex.\nUnveil: Negate target tactic.","attack":4, "training":3, "health":1,
+		"restrict":5,"reflex":true ,"unveil":{"0":{"effect":"negate_target_tactic", "data":1}},"maintenance":{"0":{"effect":"owner_pays", "data":2}},"tags":{"0":"Unveil","1":"Negation", "2":"Reflex"}
 	},
 	"7":{
-		"name":"Mad Scientist", "cost":5, "type":0, "rarity":2,"text":"Reflex.  Experimental.\nunveil: Return target unit from any graveyard to the front line as a machine.\nunveil it.",
-		"attack":4, "training":3, "health":4, "restrict":5,"unveil":{"0":{"effect":"unit_any_gy_to_fl_unveild&set_type", "data":1}}
+		"name":"Mad Scientist", "cost":5, "type":0, "rarity":2,"text":"Reflex.  Experimental.\nUnveil: Return target unit from any graveyard to the front line as a machine.\nUnveil it.",
+		"attack":4, "training":3, "health":4, "restrict":5,"unveil":{"0":{"effect":"unit_any_gy_to_fl_unveild&set_type", "data":1}},"tags":{"0":"Unveil","1":"Reflex", "2":"Reanimation", "3":"Experimental"}
 	},
 	"8":{
 		"name":"Automated Turret", "cost":1, "type":1, "rarity":0,"text":"Immobile.\n\nReflex.\n\nunveil: Deal 1 damage to any target.",
 		"attack":0, "training":0, "health":2, "restrict":5, "unveil":{"0":{"effect":"dmg_any_target","data":1 }},  "reflex":true,"immobile":true,
-		"flavor":"This cheap turret is flimsy and weak, but its targeting systems see what the human eye cannot."
+		"flavor":"This cheap turret is flimsy and weak, but its targeting systems see what the human eye cannot.","tags":{"0":"Reflex","1":"Immobile", "2":"Direct Damage"}
 	},
 	"9":{
-		"name":"Economy of Scale", "cost":2, "type":2, "rarity":0,"text":"Impulse: Your cards cost 1cr less to play for each card in your graveyard with the same name.",
-		"restrict":5, "impulse":{"0":{"effect":"shuffle_friendly_concealed_units"}},
+		"name":"Economy of Scale", "cost":2, "type":2, "rarity":0,"text":"Impulse: Until the start of your next turn, your cards cost 1cr less to play for each card in your graveyard with the same name.",
+		"restrict":5, "impulse":{"0":{"effect":"shuffle_friendly_concealed_units"}},"tags":{"0":"Impulse","1":"Economy"}
 	},
 	"10":{
 		"name":"Make Disappear", "cost":5, "type":4, "rarity":0,"text":"Eliminate target unit.", 
-		"unveil":{"0":{"effect":"eliminate_target_unit"}},"restrict":5
+		"unveil":{"0":{"effect":"eliminate_target_unit"}},"restrict":5,"tags":{"0":"Target Removal"}
 	},
 	"11":{
 		"name":"Eliminate", "cost":5, "type":4, "rarity":0,"text":"Eliminate target face-up card.", 
-		"unveil":{"0":{"effect":"eliminate_target_unveild_unit"}},"restrict":5
+		"unveil":{"0":{"effect":"eliminate_target_unveild_unit"}},"restrict":5,"tags":{"0":"Target Removal"}
 	},
 	"12":{
 		"name":"Snipe", "cost":4, "type":4, "rarity":0,"text":"Deal 9 damage to target unit or armament.", 
-		"unveil":{"0":{"effect":"damage_target_unit_or_arm", "data":9}},"restrict":5
+		"unveil":{"0":{"effect":"damage_target_unit_or_arm", "data":9}},"restrict":5,"tags":{"0":"Target Removal"}
 	},
 	"13":{
 		"name":"Sabotage", "cost":5, "type":4, "rarity":0,"text":"Eliminate target concealed card.", 
-		"unveil":{"0":{"effect":"eliminate_target_concealed_card"}},"restrict":5
+		"unveil":{"0":{"effect":"eliminate_target_concealed_card"}},"restrict":5,"tags":{"0":"Target Removal"}
 	},
 	"14":{
 		"name":"Blow up the Sunshine", "cost":10, "type":4, "rarity":1,"text":"Eliminate all units.", 
-		"unveil":{"0":{"effect":"eliminate_all_units"}},"restrict":5
+		"unveil":{"0":{"effect":"eliminate_all_units"}},"restrict":5,"tags":{"0":"Mass Removal"}
 	},	
 	"15":{
 		"name":"Send the Poor", "cost":6, "type":4, "rarity":0,"text":"Recruit 3.", 
-		"unveil":{"0":{"effect":"recruit", "data":3}},"restrict":5
+		"unveil":{"0":{"effect":"recruit", "data":3}},"restrict":5,"tags":{"0":"Recruit"}
 	},
 	"16":{
 		"name":"Propaganda", "cost":3, "type":2, "rarity":1,"text":"Impulse: Recruit 1.\n\nMaintenance: 1cr.", 
 		"impulse":{"0":{"effect":"recruit", "data":1}},"maintenance":{"0":{"effect":"owner_pays", "data":1}},"restrict":5
+		,"tags":{"0":"Recruit","1":"Impulse", "2":"Maintenance"}
 	},
 	"17":{
 		"name":"Napalm Strike", "cost":5, "type":4, "rarity":1,"text":"Deal 3 damage to all units.  If this effect eliminates 1 or more units, repeat until it doesn't.", 
-		"unveil":{"0":{"effect":"damage_all_units_repeating", "data":4}},"restrict":5
+		"unveil":{"0":{"effect":"damage_all_units_repeating", "data":4}},"restrict":5,"tags":{"0":"Mass Removal"}
 	},	
 	"18":{
 		"name":"Heavy Turret", "cost":4, "type":1, "rarity":1,"text":"Immobile.\n\nReflex.\n\nunveil: Deal 3 damage divided as you choose among up to three targets.",
 		"attack":0, "training":0, "health":3, "restrict":5, "unveil":{"0":{"effect":"dmg_any_target_divided","data":3 }},  "reflex":true,"immobile":true
+		,"tags":{"0":"Reflex","1":"Immobile", "2":"Direct Damage"}
 	},
 	"19":{
 		"name":"Anti-Personnel Mines", "cost":3, "type":3, "rarity":0,"text":"Reflex.\n\nDelay 1.\n\nunveil: Deal 5 damage to all blockable attacking units.",
 		"unveil":{"0":{"effect":"dmg_all_blockable_attacking","data":10 }},  "reflex":true,"delay":1, "flavor":"Heh, nothin' personnel, kid....."
+		,"tags":{"0":"Mass Removal"}
 	},	
 	"20":{
 		"name":"Fundraiser", "cost":0, "type":4, "rarity":2,"text":"Gain 5cr.\n\nRestrict 1.", 
-		"unveil":{"0":{"effect":"owner_gains_money", "data":5}},"restrict":1
+		"unveil":{"0":{"effect":"owner_gains_money", "data":5}},"restrict":1,"tags":{"0":"Economy"}
 	},	
 	"21":{
 		"name":"Second Look", "cost":1, "type":4, "rarity":0,"text":"Recruit 1.", 
-		"unveil":{"0":{"effect":"recruit", "data":1}},"restrict":5
+		"unveil":{"0":{"effect":"recruit", "data":1}},"restrict":5,"tags":{"0":"Recruit"}
 	},
 	"22":{
 		"name":"Call to Action", "cost":4, "type":4, "rarity":0,"text":"Recruit 2.", 
-		"unveil":{"0":{"effect":"recruit", "data":2}},"restrict":5
+		"unveil":{"0":{"effect":"recruit", "data":2}},"restrict":5,"tags":{"0":"Recruit"}
 	},
 	"23":{
 		"name":"Disrupt", "cost":2, "type":4, "rarity":1,"text":"Negate target unveil effect.", 
-		"unveil":{"0":{"effect":"negate_unveil"}},"restrict":5
+		"unveil":{"0":{"effect":"negate_unveil"}},"restrict":5,"tags":{"0":"Negate"}
 	},	
 	"24":{
 		"name":"Shoot", "cost":1, "type":4, "rarity":0,"text":"Deal 3 damage to target unit or armament.", 
-		"unveil":{"0":{"effect":"damage_target_unit_or_arm", "data":3}},"restrict":5
+		"unveil":{"0":{"effect":"damage_target_unit_or_arm", "data":3}},"restrict":5,"tags":{"0":"Target Removal"}
 	},
 	"25":{
-		"name":"Stimulants", "cost":2, "type":2, "rarity":1,"text":"Impulse: unveil effects you control occur an additional time until the start of your next turn.", 
-		"impulse":{"0":{"effect":"unveil_repeat"}},"restrict":5
+		"name":"Experimental Stimulants", "cost":2, "type":2, "rarity":1,"text":"Impulse: Unveil effects you control occur an additional time until the start of your next turn.", 
+		"impulse":{"0":{"effect":"unveil_repeat"}},"restrict":5,"tags":{"0":"Impulse","2":"Unveil","3":"Experimental"}
 	},
 	"26":{
-		"name":"Subsidy", "cost":2, "type":2, "rarity":1,"text":"Impulse: Units cost 2cr less to play this turn.  \nMaintenance costs are reduced by 1cr.", 
+		"name":"Subsidy", "cost":2, "type":2, "rarity":1,"text":"Impulse: Units cost 2cr less to play this turn. Maintenance costs are reduced by 1cr this turn.", 
 		"impulse":{"0":{"effect":"maintenance_reduce","data":1},"1":{"effect":"unit_reduce","data":2}},"restrict":5
+		,"tags":{"0":"Impulse","2":"Maintenance","3":"Economy"}
 	},
 	"27":{
 		"name":"Ambush", "cost":12, "type":4, "rarity":2,"text":"Send all units from your standby zone to the front line, concealed.", 
-		"impulse":{"0":{"effect":"send_all_units_from_standby","data":1}},"restrict":5
+		"impulse":{"0":{"effect":"send_all_units_from_standby","data":1}},"restrict":5,"tags":{"0":"Standby"}
 	},
 	"28":{
-		"name":"Smear Campaign", "cost":6, "type":4, "rarity":0,"text":"Target player pays 6cr or mills 10.", 
+		"name":"Smear Campaign", "cost":6, "type":4, "rarity":0,"text":"Target player pays you 5cr or mills 10.", 
 		"impulse":{"0":{"effect":"maintenance_reduce","data":1},"1":{"effect":"unit_reduce","data":2}},"restrict":5
+		,"tags":{"0":"Mill","1":"Economy"}
 	},
 	"29":{
 		"name":"Covering Fire", "cost":0, "type":2, "rarity":0,"text":"Impulse: Deal 1 damage to all units your opponents control.", 
-		"impulse":{"0":{"effect":"damage_enemy_units", "data":1}},"restrict":5
+		"impulse":{"0":{"effect":"damage_enemy_units", "data":1}},"restrict":5,"tags":{"0":"Impulse","1":"Mass Removal"}
 	},
 	"30":{
 		"name":"Infiltration Expert", "cost":5, "type":0, "rarity":1,"text":"Advance: Eliminate target tactic.  If it was a field tactic, \nthis unit gains unblockable until end of turn.", 
 		"advance":{"0":{"effect":"eliminate_tactic", "data":1}},"restrict":5, "attack":5, "training":2, "health":4
+		,"tags":{"0":"Advance","1":"Unblockable", "2":"Target Removal"}
 	},
 	"31":{
 		"name":"Espionage", "cost":2, "type":4, "rarity":1,"text":"Target player reveals their hand.  They send a card of your choice to their standby zone.", 
 		"impulse":{"0":{"effect":"reveal_enemy_hand_send_to_standby","data":1}},"restrict":5
+		,"tags":{"0":"Reveal Hand","1":"Standby"}
 	},
 	"32":{
-		"name":"Spy Drone", "cost":3, "type":1, "rarity":1,"text":"Unblockable.\n\nAdvance: Target player reveals their standby zone to you.  Choose a card and send it to their graveyard.\n\nYou may play this unit directly from standby.", 
+		"name":"Spy Drone", "cost":3, "type":1, "rarity":1,"text":"Unblockable.\n\nAdvance: Defending player reveals their standby zone to you.  Choose a card and send it to their graveyard.\n\nYou may play this unit directly from standby.", 
 		"unblockable":true, "impulse":{"0":{"effect":"damage_enemy_units", "data":1}},"restrict":5, "attack":0, "training":0, "health":1
+		,"tags":{"0":"Drone","1":"Unblockable", "2":"Advance","3":"Reveal Standby"}
 	},
 	"33":{
 		"name":"Enthusiastic Engineer", "cost":3, "type":0, "rarity":1,"text":"This unit gains +1/+0/+1 whenever a machine or armament enters the front line under your control.\nUnveil: Repair target armament or machine.", 
 		"unblockable":true, "impulse":{"0":{"effect":"damage_enemy_units", "data":1}},"restrict":5, "attack":2, "training":3, "health":2
+		,"tags":{"0":"Buff", "1":"Unveil","2":"Machine","3":"Armament"}
 	},
 	"34":{
 		"name":"Inspiring Leader", "cost":3, "type":0, "rarity":1,"text":"Advance:  Other humans you control gain +1/+0/+1", 
 		"advance":{"0":{"effect":"buff_man", "data":1}},"restrict":5, "attack":3, "training":2, "health":4
+		,"tags":{"0":"Buff", "1":"Advance","2":"Humans"}
 	},
 	"35":{
 		"name":"Drone Pilot", "cost":6, "type":0, "rarity":2,"text":"This unit's impulse effect triggers from standby.\n\nImpulse: Search your standby zone for a Drone unit and send it to the front lines.\n\nMaintenance: Send this unit to the standby zone.",
 		"impulse":{"0":{"effect":"damage_enemy_units", "data":1}},"restrict":5, "attack":1, "training":3, "health":1
+		,"tags":{"0":"Standby", "1":"Impulse","2":"Drone","3":"Economy","4":"Tutor"}
 	},
 	"36":{
 		"name":"APC", "cost":4, "type":5, "rarity":1,"text":"Capacity 4.", 
-		"restrict":5, "attack":5, "training":2, "health":25
+		"restrict":5, "attack":5, "training":2, "health":25,"tags":{"0":"Vanilla"}
 	},
 	"37":{
-		"name":"Guard Tower", "cost":3, "type":5, "rarity":1,"text":"Capacity 1.\nThis card's attack is equal to X+1, where X is the attack of the unit that pilots it.\n\nImpulse: Unveil target card.  Negate its unveil effect.", 
+		"name":"Guard Tower", "cost":3, "type":5, "rarity":1,"text":"Immobile.  Capacity 1.\nThis card's attack is equal to X+1, where X is the attack of the unit that pilots it.\n\nImpulse: Unveil target card.  Negate its unveil effect.", 
 		"restrict":5, "attack":1, "training":1, "health":11
+		,"tags":{"0":"Unveil", "1":"Impulse","2":"Negate","3":"Immobile"}
 	},
 	"38":{
 		"name":"Light Combat Drone", "cost":2, "type":1, "rarity":0,"text":"Unblockable.\n\nAdvance: Deal 1 damage to any target.\n\nYou may play this unit directly from standby.", 
 		"restrict":5, "attack":0, "training":0, "health":1
+		,"tags":{"0":"Drone","1":"Unblockable", "2":"Advance","3":"Direct Damage"}
 	},
 	"39":{
 		"name":"Heavy Combat Drone", "cost":5, "type":1, "rarity":1,"text":"Unblockable.\n\nAdvance: Deal 3 damage to any target.\n\nYou may play this unit directly from standby.", 
 		"restrict":5, "attack":0, "training":0, "health":6
+		,"tags":{"0":"Drone","1":"Unblockable", "2":"Advance","3":"Direct Damage"}
 	},
 	"40":{
 		"name":"Support Drone", "cost":3, "type":1, "rarity":1,"text":"Unblockable.\n\nAdvance: attacking drones you control gain +1/+0/+1.\n\nYou may play this unit directly from standby.", 
 		"restrict":5, "attack":1, "training":0, "health":4
+		,"tags":{"0":"Drone","1":"Unblockable", "2":"Advance","3":"Buff"}
 	},
 	"41":{
-		"name":"Prepare", "cost":3, "type":4, "rarity":1,"text":"Send the top 10 cards of your deck to standby.", 
+		"name":"Prepare", "cost":2, "type":4, "rarity":1,"text":"Send the top 10 cards of your deck to standby." 
+		,"tags":{"0":"Standby"}
 	},
 	"42":{
 		"name":"Defense Drone", "cost":7, "type":1, "rarity":2,"text":" Immobile.  Multi-blocker.  \nBlocking: Deal X Damage to all attacking units, where X is the number of units being blocked by a Defense Drone.\nYou may play this unit directly from standby.", 
-		"restrict":5, "attack":3, "training":0, "health":15
+		"restrict":5, "attack":3, "training":0, "health":15,"tags":{"0":"Drone","1":"Immobile", "2":"Multi-Blocker","3":"Mass Removal"}
 	},
 	"43":{
-		"name":"Repair Drone", "cost":3, "type":1, "rarity":1,"text":" Unblockable.  \n\nAdvance: Repair target drone you control.\n\nYou may play this unit directly from standby.", 
-		"restrict":5, "attack":1, "training":0, "health":4
+		"name":"Repair Drone", "cost":3, "type":1, "rarity":1,"text":" Unblockable.  \n\nAdvance: Repair target machine you control.\n\nYou may play this unit directly from standby.", 
+		"restrict":5, "attack":1, "training":0, "health":4,"tags":{"0":"Drone","1":"Repair", "2":"Advance","3":"Machine"}
 	},
 	"44":{
 		"name":"Plan Ahead", "cost":4, "type":4, "rarity":2,"text":"Search your deck for a tactic, add it to your hand, and shuffle."
+		,"tags":{"0":"Tutor"}
 	},
 	"45":{
 		"name":"Cyber-attack: Ransomware", "cost":5, "type":2, "rarity":1,"text":"Opponents must pay you 3cr whenever they unveil a concealed card. If they don't, negate its effect.\n\nunveil: Target opponent conceals all field tactics they control."
+		,"tags":{"0":"Cyber-Attack","1":"Economy", "2":"Negation","3":"Unveil", "4":"Conceal"}
 	},
 	"46":{
 		"name":"Anti-Tank Drone", "cost":6, "type":1, "rarity":1,"text":" Unblockable.  \n\nAdvance: Deal 10 damage to target unit or armament.\n\nYou may play this unit directly from standby.", 
-		"restrict":5, "attack":4, "training":0, "health":6
+		"restrict":5, "attack":4, "training":0, "health":6,"tags":{"0":"Drone","1":"Unblockable", "2":"Advance","3":"Target Removal"}
 	},
 	"47":{
-		"name":"Cyber-attack: Rootkit", "cost":2, "type":3, "rarity":1,"text":"Unveil: Gain control of target armament or machine."
+		"name":"Cyber-attack: Rootkit", "cost":2, "type":3, "rarity":1,"text":"Delay 1.\n\nUnveil: Gain control of target armament or machine."
+		,"tags":{"0":"Cyber-Attack","1":"Unveil", "2":"Gain Control","3":"Armaments", "4":"Machines"}
 	},
 	"48":{
 		"name":"Cyber-attack: Spyware", "cost":4, "type":3, "rarity":1,"text":"Delay 1.\n\nUnveil: Target opponent unveils all concealed cards they control.  Negate their exposure effects."
+		,"tags":{"0":"Cyber-Attack","1":"Unveil", "2":"Negation"}
 	},
 	"49":{
 		"name":"Cyber-attack: Wiper", "cost":5, "type":3, "rarity":1,"text":"Delay 1.\n\nUnveil: Eliminate all tactics your opponents control."
+		,"tags":{"0":"Cyber-Attack","1":"Unveil", "2":"Tactics","3":"Mass Removal","4":"Negation"}
 	},
 	"50":{
 		"name":"Cyber-attack: DDoS", "cost":2, "type":3, "rarity":1,"text":"Delay 1.\n\nUnveil: Opponents cannot recruit until the start of your next turn."
+		,"tags":{"0":"Cyber-Attack","1":"Unveil", "2":"Recruit","3":"Control"}
 	},
 	"51":{
 		"name":"Cyber-attack: APT", "cost":2, "type":3, "rarity":1,"text":"Delay 1.\n\nUnveil: Target opponent reveals their hand.  Send target armament or machine to the front line under your control."
+		,"tags":{"0":"Cyber-Attack","1":"Unveil", "2":"Gain Control","3":"Armaments", "4":"Machines", "5":"Hand Reveal"}
 	},
 	"52":{
-		"name":"Cyber-attack: Software Lock", "cost":3, "type":3, "rarity":1,"text":"Delay 1.\n\nUnveil: Target opponent sends all armaments and machines they control to standby."
+		"name":"Cyber-attack: Software Lock", "cost":3, "type":3, "rarity":1,"text":"Delay 1.\n\nUnveil: Target player sends all armaments and machines they control to standby."
+		,"tags":{"0":"Cyber-Attack","1":"Unveil", "2":"Mass Removal","3":"Armaments", "4":"Machines"}
 	},
 	"53":{
 		"name":"Cyber-attack: Social Engineering", "cost":2, "type":3, "rarity":1,"text":"Delay 1.\n\nUnveil: Humans cost your opponents 2cr more to play this turn."
+		,"tags":{"0":"Cyber-Attack","1":"Unveil", "2":"Humans","3":"Economy", "4":"Control"}
 	},
 	"54":{
 		"name":"Raise the Budget", "cost":6, "type":2, "rarity":1,"text":"Impulse: Gain 2 cr."
+		,"tags":{"0":"Economy","1":"Impulse"}
 	},
 	"55":{
 		"name":"Cyber-attack: Injector Bot", "cost":2, "type":1, "rarity":1,"text":"Advance: Search your deck or standby zone for a Cyber-attack card, add it to your hand, and shuffle.", 
 		"restrict":5, "attack":0, "training":0, "health":3
+		,"tags":{"0":"Cyber-Attack","1":"Advance", "2":"Tutor"}
 	},
 	"56":{
 		"name":"Cyber-attack: Hacker", "cost":3, "type":0, "rarity":2,"text":"Immobile.\n\nUnveil: Search your deck for a Cyber-attack card, put it into play concealed, and shuffle.", 
 		"restrict":5, "attack":0, "training":0, "health":4
+		,"tags":{"0":"Cyber-Attack","1":"Unveil", "2":"Immobile","3":"Economy", "4":"Tutor"}
 	},
 	"57":{
 		"name":"Talent Acquisition Agent", "cost":2, "type":0, "rarity":1,"text":"Immobile.\n\nUnveil: Search your deck or standby zone for a human, add it to your hand, and shuffle.", 
 		"restrict":5, "attack":3, "training":0, "health":1
+		,"tags":{"0":"Humans","1":"Unveil", "2":"Immobile","3":"Tutor"}
 	},
 	"58":{
 		"name":"Talent Acquisition", "cost":4, "type":4, "rarity":1,"text":"Search your deck or standby zone for a unit, add it to your hand, and shuffle."
+		,"tags":{"0":"Tutor"}
 	},
 	"59":{
 		"name":"Orbital Bombardment", "cost":6, "type":4, "rarity":1,"text":"Destroy all face-up units."
+		,"tags":{"0":"Mass Removal"}
 	},
 	"60":{
 		"name":"Timed Warhead", "cost":16, "type":2, "rarity":1,"text":"Impulse: Win the game"
+		,"tags":{"0":"Impulse","1":"Win Condition"}
 	},
 	"61":{
 		"name":"Media Influencer", "cost":2, "type":0, "rarity":1,"text":"Impulse: Players bid credits to gain control of target unit.\n\nEliminate: You may cast one \"Smear Campaign\" from your hand or standby zone without paying its credit cost.",
 		"restrict":5, "attack":0, "training":1, "health":4
+		,"tags":{"0":"Eliminate","1":"Economy", "2":"Control","3":"Impulse", "4":"Gain Control"}
 	},
 	"62":{
 		"name":"Scorch the Earth", "cost":12, "type":4, "rarity":1,"text":"Eliminate all tactics, units, and armaments."
+		,"tags":{"0":"Mass Removal"}
 	},
 	"63":{
 		"name":"Gunmetal Colossus", "cost":14, "type":1, "rarity":1,"text":"If this card would be sent to the graveyard for any reason, send it to the standby zone instead.\nAdvance: Eliminate any number of target units.",
 		"restrict":5, "attack":15, "training":0, "health":20
+		,"tags":{"0":"Advance","1":"Mass Removal", "2":"Win Condition"}
 	},
 	"64":{
 		"name":"Bureaucracy", "cost":0, "type":2, "rarity":2,"text":"All cards cost 10cr."
+		,"tags":{"0":"Economy","1":"Control"}
 	},
 	"65":{
 		"name":"Wealthy Investor", "cost":0, "type":0, "rarity":1,"text":"If this unit would be concealed, unveil it instead.\n\nImpulse: Gain 10cr.",
-		"restrict":5, "attack":2, "training":2, "health":1
+		"restrict":5, "attack":0, "training":0, "health":1
+		,"tags":{"0":"Economy","1":"Unveil"}
 	},
 	"66":{
 		"name":"Scout", "cost":2, "type":0, "rarity":1,"text":"Advance: Unveil target card.  Negate its unveil effect.",
 		"restrict":5, "attack":2, "training":2, "health":1
+		,"tags":{"0":"Advance","1":"Negation"}
 	},
 	"67":{
 		"name":"Concealed Weapon", "cost":1, "type":6, "rarity":1,"text":"Reflex.  \n\nUnveil: Attach this weapon to an attacking unit with training value 1 or higher.\n\nAttached unit gains +3/+0/+3.",
 		"restrict":5, "attack":3, "training":1, "health":3
+		,"tags":{"0":"Buff","1":"Reflex"}
 	},
 	"68":{
 		"name":"Expert Pilot", "cost":2, "type":0, "rarity":1,"text":"Attached Vehicle gains +1/+0/+1 and \"Unblockable\"",
 		"restrict":5, "attack":2, "training":3, "health":3
+		,"tags":{"0":"Buff","1":"Unblockable"}
 		
 	},
 	"69":{
 		"name":"Man on the Inside", "cost":4, "type":4, "rarity":0,"text":"Target player reveals their hand and standby zone.  Choose a card and send it to their graveyard."
+		,"tags":{"0":"Reveal Hand","1":"Reveal Standby", "2":"Target Removal"}
 	},
 	"70":{
 		"name":"Experimental AI", "cost":4, "type":2, "rarity":1,"text":"You may use this field spell to pilot any number of target vehicles as if it were a unit with training value 3."
+		,"tags":{"0":"Experimental","1":"Armaments", "2":"Vehicles"}
 	},
 	"71":{
 		"name":"Raging Berserker", "cost":2, "type":0, "rarity":1,"text":"If this unit would be concealed, unveil it instead. \n\nUnveil:  This unit gains +1/+0/+1.",
 		"restrict":5, "attack":2, "training":0, "health":1
+		,"tags":{"0":"Buff","1":"Unveil"}
 	},
 	"72":{
 		"name":"Strategist", "cost":3, "type":0, "rarity":0,"text":"Any time a card is unveiled, this unit gains +1/+0/+1.",
 		"restrict":5, "attack":3, "training":0, "health":3
+		,"tags":{"0":"Buff","1":"Unveil"}
 	},
 	"73":{
 		"name":"Human Spirit", "cost":4, "type":2, "rarity":2,"text":"Whenever a human enters the front lines under your control, all humans you control gain +1/+0/+1."
+		,"tags":{"0":"Buff","1":"Humans"}
 	},
 	"74":{
 		"name":"Machine Uprising", "cost":4, "type":2, "rarity":2,"text":"Impulse: You may play a machine unit from your hand without paying its credit cost.  It gains +1/+0/+1."
+		,"tags":{"0":"Buff","1":"Machines","2":"Economy"}
 	},
 	"75":{
 		"name":"Deflect", "cost":2, "type":3, "rarity":1,"text":"Unveil: You may choose new targets for target tactic or unit ability."
+		,"tags":{"0":"Unveil","1":"Gain Control","2":"Target Removal"}
 	},
 	"76":{
 		"name":"Experimental Aircraft", "cost":4, "type":5, "rarity":1,"text":"Unblockable.\nImpulse: This vehicle takes 5 damage.\nEliminate: Send this card to standby.",
 		"restrict":5, "attack":5, "training":2, "health":10
+		,"tags":{"0":"Experimental","1":"Unblockable", "2":"Impulse", "3":"Eliminate"}
 	},
 	"77":{
-		"name":"Experimental Railtank", "cost":4, "type":5, "rarity":1,"text":"Unblockable.\nAdvance: Pay X credits to deal X damage to any target.  If X exceeds 10, instead send this card directly to the graveyard.\nImpulse: This vehicle takes 5 damage.\nEliminate: Send this card to standby.",
-		"restrict":5, "attack":0, "training":2, "health":10
+		"name":"Experimental Railtank", "cost":4, "type":5, "rarity":1,"text":"Advance: Pay X credits to deal X damage to any target.  If X exceeds 10, instead send this card directly to the graveyard.\nImpulse: This vehicle takes 5 damage.\nEliminate: Send this card to standby.",
+		"restrict":5, "attack":0, "training":2, "health":15
+		,"tags":{"0":"Experimental","1":"Direct Damage", "2":"Impulse", "3":"Eliminate"}
 	},
 	"78":{
 		"name":"Experimental Stealth Bomber", "cost":4, "type":5, "rarity":1,"text":"Stealth.\nUnveil: Attach a unit with training value 2 or higher.  If you do, eliminate target unit or armament.\nImpulse: This vehicle takes 5 damage.\nEliminate: Send this card to standby.",
 		"restrict":5, "attack":5, "training":2, "health":10
+		,"tags":{"0":"Experimental","1":"Stealth", "2":"Impulse", "3":"Eliminate","4":"Unveil","5":"Target Removal"}
 	},
 	"79":{
 		"name":"Experimental Sumbarine", "cost":4, "type":5, "rarity":1,"text":"Stealth.\nUnveil: Attach a unit with training value 2 or higher.  If you do, tutor 1 \"Torpedo\", to the attack zone face-up.\nImpulse: This vehicle takes 5 damage.\nEliminate: Send this card to standby.",
 		"restrict":5, "attack":2, "training":2, "health":10
+		,"tags":{"0":"Experimental","1":"Stealth", "2":"Impulse", "3":"Eliminate", "4":"Tutor"}
 	},
 	"80":{
 		"name":"Torpedo", "cost":2, "type":1, "rarity":0,"text":"Stealth.  \nAdvance: Deal 10 damage to target unit or armament.  Eliminate this card.",
 		"restrict":5, "attack":0, "training":0, "health":10
+		,"tags":{"0":"Stealth","1":"Advance", "2":"Target Removal"}
 	},
 	"81":{
-		"name":"Program Director", "cost":6, "type":0, "rarity":1,"text":"Restrict 1.\nThis unit's impulse effect triggers from standby.\nImpulse:  Until the start of your next turn, you may tutor any number of Experimental cards into play by paying their credit costs.",
+		"name":"Program Director", "cost":6, "type":0, "rarity":1,"text":"Restrict 1.  Experimental.\nThis unit's impulse effect triggers from standby.\nImpulse:  Until the start of your next turn, you may tutor any number of Experimental cards into play by paying their credit costs.",
 		"restrict":1, "attack":1, "training":2, "health":11
+		,"tags":{"0":"Experimental","1":"Standby", "2":"Impulse", "3":"Tutor"}
 	},
 	"82":{
 		"name":"Combat Drone", "cost":3, "type":1, "rarity":1,"text":"Unblockable.\n\nAdvance: Deal 2 damage to any target.\n\nYou may play this unit directly from standby.", 
 		"restrict":5, "attack":0, "training":0, "health":3
+		,"tags":{"0":"Drone","1":"Unblockable", "2":"Advance","3":"Direct Damage"}
 	},
-    "83":{
-        "name":"Manufacturing Contract", "cost":4, "type":2, "rarity":2,"text":"Experimental.\n\nWhenever an armament enters the front line under your control, you gain 4cr.",
-        "effect":{"0":{"effect":"armament_enters_gain_cr","data":4}},"restrict":5
-    },
-    "84":{
-        "name":"Modular Automaton", "cost":"XX", "type":1, "rarity":2,"text":"When this unit enters, it gains +X/+0/+X.\n\nUnveil: Deal X damage to any target.\n\nAdvance: Deal X damage to any target.",
-        "restrict":5, "attack":1, "training":0, "health":1
-    },
-    "85":{
-        "name":"Crunch Time", "cost":2, "type":2, "rarity":1,"text":"All impulse effects trigger an additional time.",
-       "effect":{"0":{"effect":"extra_impulse","data":1}},"restrict":5
-    },
-    "86":{
-        "name":"On-site Training", "cost":1, "type":2, "rarity":1,"text":"Humans you control have a training value of 3.",
-        "restrict":5
-    }
+	"83":{
+		"name":"Manufacturing Contract", "cost":4, "type":2, "rarity":2,"text":"Experimental.\n\nWhenever an armament enters the front line under your control, you gain 4cr.",
+		"effect":{"0":{"effect":"armament_enters_gain_cr","data":4}},"restrict":5
+		,"tags":{"0":"Experimental","1":"Economy"}
+	},
+	"84":{
+		"name":"Modular Automaton", "cost":"XX", "type":1, "rarity":2,"text":"When this unit enters, it gains +X/+0/+X.\n\nUnveil: Deal X damage to all attacking units.\n\nAdvance: Deal X damage to any target.",
+		"restrict":5, "attack":1, "training":0, "health":1
+		,"tags":{"0":"Modular","1":"Unblockable", "2":"Advance","3":"Direct Damage"}
+	},
+	"85":{
+		"name":"Crunch Time", "cost":2, "type":2, "rarity":1,"text":"All impulse effects trigger an additional time.",
+	   "effect":{"0":{"effect":"extra_impulse","data":1}},"restrict":5
+		,"tags":{"0":"Impulse","1":"Economy", "2":"Control"}
+	},
+	"86":{
+		"name":"On-site Training", "cost":1, "type":2, "rarity":1,"text":"Humans you control have a training value of 3.",
+		"restrict":5
+		,"tags":{"0":"Armaments", "1":"Humans"}
+	}
   
 }

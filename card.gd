@@ -10,12 +10,14 @@ signal block
 signal maintenance
 signal impulse
 
+
 @onready var json_path:String
 @onready var json_text:String
 @onready var json_object:JSON
 @onready var json_dictionary:Dictionary
 @onready var const_card_data:Variant
 
+@onready var tags:Array[String] = []
 
 func _ready() -> void:
 	pass
@@ -39,22 +41,38 @@ func populate_base(_id:int, _json_path:String  = "res://databases/card_data.json
 		var _name:String = const_card_data["name"]
 		var _description:String = const_card_data["text"]
 		var _cost:String
+		var _restrict:int =5
+		if const_card_data.has("restrict"):
+			_restrict = const_card_data["restrict"]
+		else:
+			_restrict = 5
+	
 		var temp = const_card_data["cost"]
 		if typeof(temp)==TYPE_FLOAT:
 			_cost = str(int(temp))
 		else:
 			_cost = str(temp)
+		var tag_temp = const_card_data["tags"]	
+		if tag_temp:
+			var i:int = 0
+			while tag_temp.has(str(i)):
+				tags.push_front(tag_temp[str(i)])
+				i= i+1
+				
+				
+			
 		var _type:int = const_card_data["type"]
 
+		
 		if _type==0 || _type==1|| _type==5|| _type==6:
 			var _attack:int = const_card_data["attack"]
 			var _training:int = const_card_data["training"]
 			var _health:int = const_card_data["health"]
-			baseData.PopulateData(_id, _name, _description, _cost, _attack, _training, _health, _type)
+			baseData.PopulateData(_id, _name, _description, _cost, _attack, _training, _health, _type, _restrict)
 			#print(str("ID: ", baseData.id, ",  ", baseData.name, ",   type:", _type,",    cost: ", baseData.cost, ",    \n\n",baseData.description,
 			#"\n\nattack: ", baseData.attack, ",   training:", baseData.training,",    health: ", baseData.health,"\n\n\n\n"))
 		else:
-			baseData.PopulateData(_id, _name, _description, _cost, _type)
+			baseData.PopulateData(_id, _name, _description, _cost, _type, _restrict)
 			#print(str("ID: ", baseData.id, ",  ", baseData.name, ",   type:", _type,",    cost: ", baseData.cost, ",    \n\n",baseData.description, "\n\n\n\n"))
 
 	else:
