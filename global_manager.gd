@@ -21,9 +21,9 @@ var names:Dictionary = {}
 
 
 func build_card_from_id(id:int)->Card:
-	var output:Card = Card.new()
-	output.populate_base(id)
-	return output
+	var previews:Card = Card.new()
+	previews.populate_base(id)
+	return previews
 
 func is_valid_slot(slotNum:int)->bool:
 	return gm.DoesSlotExist(slotNum)
@@ -51,7 +51,7 @@ func _ready() -> void:
 	assert(FileAccess.file_exists(json_path), str("CARD.POPULATE():  FILE DOES NOT EXIST AT PATH ", json_path))
 	var file = FileAccess.open(json_path,FileAccess.READ)
 	json_text = file.get_as_text()
-	#print("json text output: " , json_text)
+	#print("json text previews: " , json_text)
 	json_object = JSON.new()
 	json_object.parse(json_text)
 	json_dictionary= json_object.data
@@ -111,15 +111,15 @@ func save_deck(cards:Dictionary, name:String) -> bool:
 	return gm.AddNewDeck(cards,name)
 	
 func get_card_array_from_name(name:String) -> Array[Card]: #id,number
-	var output:Array[Card] = []
+	var previews:Array[Card] = []
 	if gm.HasDeck(name):
 		var dicc:Dictionary = gm.GetCardDict(name)
 		var arr:Array[int] = dicc.keys()
 		for i in arr:
 			for n in dicc[i]:
-				output.push_back(build_card_from_id(i))
+				previews.push_back(build_card_from_id(i))
 		
-	return output
+	return previews
 
 func deck_count()->int:
 	if gm.SavedDeckCount() != null:
@@ -174,17 +174,17 @@ func card_preview_selection_sort(previews:Array[card_preview], sortby:e_sort)->A
 	 #   swap(arr[i], arr[min_idx]);
 	#}
 #}
-	var output:Array[card_preview] = clean_array(previews.duplicate(true))
+
 	var i:int = 0
-	var n:int = output.size()
+	var n:int = previews.size()
 	match sortby:
 		global_manager.e_sort.ID_ASCENDING:
 			while i<n:
 				var min_indx:int = i
 				var j:int = i+1
 				while j<n:
-					if int(output[j].card.baseData.id)<int(output[min_indx].card.baseData.id):
-						output = swap_by_index(j, min_indx, output)
+					if int(previews[j].card.baseData.id)<int(previews[min_indx].card.baseData.id):
+						previews = swap_by_index(j, min_indx, previews)
 					j=j+1
 				i=i+1
 		global_manager.e_sort.ID_DESCENDING:
@@ -192,18 +192,18 @@ func card_preview_selection_sort(previews:Array[card_preview], sortby:e_sort)->A
 				var min_indx:int = i
 				var j:int = i+1
 				while j<n:
-					if int(output[j].card.baseData.id)<int(output[min_indx].card.baseData.id):
-						output = swap_by_index(j, min_indx, output)
+					if int(previews[j].card.baseData.id)<int(previews[min_indx].card.baseData.id):
+						previews = swap_by_index(j, min_indx, previews)
 					j=j+1
 				i=i+1
-			output.reverse()
+			previews.reverse()
 		global_manager.e_sort.COST_ASCENDING:
 			while i<n:
 				var min_indx:int = i
 				var j:int = i+1
 				while j<n:
-					if int(output[j].card.baseData.cost)<int(output[min_indx].card.baseData.cost):
-						output = swap_by_index(j, min_indx, output)
+					if int(previews[j].card.baseData.cost)<int(previews[min_indx].card.baseData.cost):
+						previews = swap_by_index(j, min_indx, previews)
 					j=j+1
 				i=i+1
 		global_manager.e_sort.COST_DESCENDING:
@@ -211,18 +211,18 @@ func card_preview_selection_sort(previews:Array[card_preview], sortby:e_sort)->A
 				var min_indx:int = i
 				var j:int = i+1
 				while j<n:
-					if int(output[j].card.baseData.cost)<int(output[min_indx].card.baseData.cost):
-						output = swap_by_index(j, min_indx, output)
+					if int(previews[j].card.baseData.cost)<int(previews[min_indx].card.baseData.cost):
+						previews = swap_by_index(j, min_indx, previews)
 					j=j+1
 				i=i+1
-			output.reverse()
+			previews.reverse()
 		global_manager.e_sort.A_Z:
 			while i<n:
 				var min_indx:int = i
 				var j:int = i+1
 				while j<n:
-					if output[j].card.baseData.name<output[min_indx].card.baseData.name:
-						output = swap_by_index(j, min_indx, output)
+					if previews[j].card.baseData.name<previews[min_indx].card.baseData.name:
+						previews = swap_by_index(j, min_indx, previews)
 					j=j+1
 				i=i+1
 		global_manager.e_sort.Z_A:
@@ -230,13 +230,13 @@ func card_preview_selection_sort(previews:Array[card_preview], sortby:e_sort)->A
 				var min_indx:int = i
 				var j:int = i+1
 				while j<n:
-					if output[j].card.baseData.name<output[min_indx].card.baseData.name:
-						output = swap_by_index(j, min_indx, output)
+					if previews[j].card.baseData.name<previews[min_indx].card.baseData.name:
+						previews = swap_by_index(j, min_indx, previews)
 					j=j+1
 				i=i+1
-			output.reverse()
+			previews.reverse()
 
-	return output
+	return previews
 	
 func clean_array(dirty_array: Array[card_preview]) -> Array[card_preview]:
 	var cleaned_array:Array[card_preview] = []

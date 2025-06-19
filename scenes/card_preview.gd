@@ -18,15 +18,16 @@ var list:horz_list
 var health:int
 var selected:bool = false
 var card:Card
-
+var is_ready:bool = false
 var editor:deck_editor
 signal added
 func _ready() -> void:
 	if in_editor:
 		button.toggle_mode = false
 		button.focus_mode = Control.FOCUS_NONE
-
+	
 	populate()
+	is_ready = true
 
 func set_args(input:Card, this_is_selectable:bool, _list:horz_list):
 	can_be_selected = this_is_selectable
@@ -47,6 +48,8 @@ func set_args_collection(input:Card, _editor:deck_editor ):
 	in_editor = true
 	card = input
 	editor = _editor
+	if is_ready:
+		populate()
 
 
 

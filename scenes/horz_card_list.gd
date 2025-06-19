@@ -52,7 +52,6 @@ func deselect_all_previews():
 		cardo.unpress()
 
 
-
 func _on_button_back_pressed() -> void:
 	canceled.emit()
 	

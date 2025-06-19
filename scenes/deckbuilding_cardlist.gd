@@ -18,7 +18,8 @@ class_name deck_editor
 @onready var grid:GridContainer = $Panel_Background/ScrollContainer/GridContainer
 @onready var line_edit:LineEdit = $Panel_Background/Panel_Side/LineEdit
 @onready var label_count:Label = $Panel_Background/Label_Count
-
+@onready var scroll_cards:ScrollContainer =$Panel_Background/ScrollContainer
+@onready var scroll_deck:ScrollContainer =$Panel_Background/Panel_Side/ScrollContainer_Deck
 
 
 var sort_by:global_manager.e_sort = global_manager.e_sort.ID_ASCENDING
@@ -159,31 +160,97 @@ func populate_grid():
 				if type!=3:
 					to_remove.push_front(kiddo)
 		7:
-			for kiddo in displayed_card_previews: #iterate all cards and search for name
+			for kiddo in displayed_card_previews: 
 				var type:int = int(kiddo.card.baseData.type)
 				if type!=4:
 					to_remove.push_front(kiddo)
 		8:
-			for kiddo in displayed_card_previews: #iterate all cards and search for name
+			for kiddo in displayed_card_previews: 
 				var type:int = int(kiddo.card.baseData.type)
 				if type!=5 && type!=6:
 					to_remove.push_front(kiddo)
 		9:
-			for kiddo in displayed_card_previews: #iterate all cards and search for name
+			for kiddo in displayed_card_previews: 
 				var type:int = int(kiddo.card.baseData.type)
 				if type!=6:
 					to_remove.push_front(kiddo)
 		10:
-			for kiddo in displayed_card_previews: #iterate all cards and search for name
+			for kiddo in displayed_card_previews: 
 				var type:int = int(kiddo.card.baseData.type)
 				if type!=5:
 					to_remove.push_front(kiddo)
 				#END TYPE FILTER
-	for kiddo in to_remove:
-		if displayed_card_previews.has(kiddo):
-			displayed_card_previews.erase(kiddo)
-#sort
-	displayed_card_previews = global_manager.card_preview_selection_sort(displayed_card_previews,sort_by)
+	for filtered_card in to_remove:
+		if displayed_card_previews.has(filtered_card):
+			displayed_card_previews.erase(filtered_card)
+			
+	displayed_card_previews = global_manager.clean_array(displayed_card_previews)
+
+	var i:int = 0
+	var n:int = displayed_card_previews.size()-1
+	match sort_by:
+		global_manager.e_sort.ID_ASCENDING:
+			while i<n:
+				var min_indx:int = i
+				var j:int = i+1
+				while j<n:
+					var j_got:card_preview = displayed_card_previews[j] as card_preview
+					var min_got:card_preview = displayed_card_previews[min_indx] as card_preview
+					if j_got.card.baseData.id < min_got.card.baseData.id:
+						displayed_card_previews = global_manager.swap_by_index(j, min_indx, displayed_card_previews)
+					j=j+1
+				i=i+1
+		global_manager.e_sort.ID_DESCENDING:
+			while i<n:
+				var min_indx:int = i
+				var j:int = i+1
+				while j<n:
+					if displayed_card_previews[j].card.baseData.id > displayed_card_previews[min_indx].card.baseData.id:
+						displayed_card_previews =  global_manager.swap_by_index(j, min_indx, displayed_card_previews)
+					j=j+1
+				i=i+1
+		global_manager.e_sort.COST_ASCENDING:
+			while i<n:
+				var min_indx:int = i
+				var j:int = i+1
+				while j<n:
+					var j_got:card_preview = displayed_card_previews[j] as card_preview
+					var min_got:card_preview = displayed_card_previews[min_indx] as card_preview
+					if j_got.card.baseData.cost < min_got.card.baseData.cost:
+						displayed_card_previews =  global_manager.swap_by_index(j, min_indx, displayed_card_previews)
+					j=j+1
+				i=i+1
+		global_manager.e_sort.COST_DESCENDING:
+			while i<n:
+				var min_indx:int = i
+				var j:int = i+1
+				while j<n:
+					if int(displayed_card_previews[j].card.baseData.cost)<int(displayed_card_previews[min_indx].card.baseData.cost):
+						displayed_card_previews =  global_manager.swap_by_index(j, min_indx, displayed_card_previews)
+					j=j+1
+				i=i+1
+			displayed_card_previews.reverse()
+		global_manager.e_sort.A_Z:
+			while i<n:
+				var min_indx:int = i
+				var j:int = i+1
+				while j<n:
+					if displayed_card_previews[j].card.baseData.name<displayed_card_previews[min_indx].card.baseData.name:
+						displayed_card_previews =  global_manager.swap_by_index(j, min_indx, displayed_card_previews)
+					j=j+1
+				i=i+1
+		global_manager.e_sort.Z_A:
+			while i<n:
+				var min_indx:int = i
+				var j:int = i+1
+				while j<n:
+					if displayed_card_previews[j].card.baseData.name<displayed_card_previews[min_indx].card.baseData.name:
+						displayed_card_previews =  global_manager.swap_by_index(j, min_indx, displayed_card_previews)
+					j=j+1
+				i=i+1
+			displayed_card_previews.reverse()
+
+	#displayed_card_previews = global_manager.card_preview_selection_sort(displayed_card_previews as Array[card_preview],sort_by)
 #display results on grid
 	for kiddo in displayed_card_previews:
 		grid.add_child(kiddo)
@@ -207,6 +274,8 @@ func _ready() -> void:
 	loaded_cards = global_manager.get_card_array_from_name(deck_name)
 	for cardo in loaded_cards:
 		add_card(cardo.baseData.id)
+	
+
 
 func _on_button_cancel_pressed() -> void:
 	exit.emit()
@@ -233,12 +302,16 @@ func _on_line_edit_text_changed(new_text: String) -> void:
 
 func _on_line_edit_search_text_changed(new_text: String) -> void:
 	search_text = new_text
-	wipe_grid()
+	for kiddo in grid.get_children():
+		kiddo.added.disconnect(add_card.bind(kiddo.card.baseData.id))
+		grid.remove_child(kiddo)
 	populate_grid()
 
 func set_sort(sort:global_manager.e_sort):
 	sort_by = sort
-	wipe_grid()
+	for kiddo in grid.get_children():
+		kiddo.added.disconnect(add_card.bind(kiddo.card.baseData.id))
+		grid.remove_child(kiddo)
 	populate_grid()
 	
 func _on_option_button_sort_by_item_selected(index: int) -> void:

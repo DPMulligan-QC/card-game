@@ -256,7 +256,7 @@
 		,"tags":{"0":"Tutor"}
 	},
 	"59":{
-		"name":"Orbital Bombardment", "cost":6, "type":4, "rarity":1,"text":"Destroy all face-up units."
+		"name":"Orbital Bombardment", "cost":6, "type":4, "rarity":1,"text":"Eliminate all face-up units."
 		,"tags":{"0":"Mass Removal"}
 	},
 	"60":{
@@ -329,7 +329,7 @@
 		,"tags":{"0":"Buff","1":"Machines","2":"Economy"}
 	},
 	"75":{
-		"name":"Deflect", "cost":2, "type":3, "rarity":1,"text":"Unveil: You may choose new targets for target tactic or unit ability."
+		"name":"Deflect", "cost":1, "type":3, "rarity":1,"text":"Unveil: You may choose new targets for target tactic or unit ability."
 		,"tags":{"0":"Unveil","1":"Gain Control","2":"Target Removal"}
 	},
 	"76":{
@@ -338,7 +338,7 @@
 		,"tags":{"0":"Experimental","1":"Unblockable", "2":"Impulse", "3":"Eliminate"}
 	},
 	"77":{
-		"name":"Experimental Railtank", "cost":4, "type":5, "rarity":1,"text":"Advance: Pay X credits to deal X damage to any target.  If X exceeds 10, instead send this card directly to the graveyard.\nImpulse: This vehicle takes 5 damage.\nEliminate: Send this card to standby.",
+		"name":"Experimental Railtank", "cost":4, "type":5, "rarity":1,"text":"Advance: Pay X credits to deal X damage divided across any number of targets.  \nImpulse: This vehicle takes 5 damage.\nEliminate: Send this card to standby.",
 		"restrict":5, "attack":0, "training":2, "health":15
 		,"tags":{"0":"Experimental","1":"Direct Damage", "2":"Impulse", "3":"Eliminate"}
 	},
@@ -348,12 +348,12 @@
 		,"tags":{"0":"Experimental","1":"Stealth", "2":"Impulse", "3":"Eliminate","4":"Unveil","5":"Target Removal"}
 	},
 	"79":{
-		"name":"Experimental Sumbarine", "cost":4, "type":5, "rarity":1,"text":"Stealth.\nUnveil: Attach a unit with training value 2 or higher.  If you do, tutor 1 \"Torpedo\", to the attack zone face-up.\nImpulse: This vehicle takes 5 damage.\nEliminate: Send this card to standby.",
+		"name":"Experimental Submarine", "cost":4, "type":5, "rarity":1,"text":"Stealth.\nUnveil: Attach a unit with training value 2 or higher.  If you do, you may tutor 1 or more \"Torpedo\" to the attack zone, face-up.\nImpulse: This vehicle takes 5 damage.\nEliminate: Send this card to standby.",
 		"restrict":5, "attack":2, "training":2, "health":10
 		,"tags":{"0":"Experimental","1":"Stealth", "2":"Impulse", "3":"Eliminate", "4":"Tutor"}
 	},
 	"80":{
-		"name":"Torpedo", "cost":2, "type":1, "rarity":0,"text":"Stealth.  \nAdvance: Deal 10 damage to target unit or armament.  Eliminate this card.",
+		"name":"Torpedo", "cost":2, "type":1, "rarity":0,"text":"Stealth.  \nAdvance: Eliminate target unit or armament, then eliminate this card.",
 		"restrict":5, "attack":0, "training":0, "health":10
 		,"tags":{"0":"Stealth","1":"Advance", "2":"Target Removal"}
 	},
@@ -386,6 +386,20 @@
 		"name":"On-site Training", "cost":1, "type":2, "rarity":1,"text":"Humans you control have a training value of 3.",
 		"restrict":5
 		,"tags":{"0":"Armaments", "1":"Humans"}
+	},
+	"87":{
+		"name":"One Step Ahead", "cost":3, "type":4, "rarity":0,"text":"Negate target instant.\n\nRestrict 3.","restrict":5
+		,"tags":{"0":"Negation"}
+	},	
+	"88":{
+		"name":"Carpet Bombing", "cost":6, "type":4, "rarity":1,"text":"Eliminate all cards in target zone.",
+		"restrict":5
+		,"tags":{"0":"Mass Removal", "1":"Target Removal"}
+	},
+	"89":{
+		"name":"Experimental Power Armor", "cost":4, "type":5, "rarity":1,"text":"You may equip this vehicle to a suitable unit as if it were a weapon.  If you do, that unit gains +7/+0/+7.\nImpulse: This vehicle takes 5 damage.\nEliminate: Send this card to standby.",
+		"restrict":5, "attack":7, "training":2, "health":7
+		,"tags":{"0":"Experimental","1":"Weapon", "2":"Vehicle", "3":"Buff"}
 	}
   
 }

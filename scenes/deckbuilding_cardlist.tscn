@@ -120,6 +120,7 @@ theme = ExtResource("1_q6e07")
 text = "EXIT"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel_Background"]
+custom_minimum_size = Vector2(250, 350)
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -133,11 +134,12 @@ grow_vertical = 2
 vertical_scroll_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="Panel_Background/ScrollContainer"]
+clip_children = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
-theme_override_constants/h_separation = 258
-theme_override_constants/v_separation = 358
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
 columns = 5
 
 [node name="Label_Count" type="Label" parent="Panel_Background"]

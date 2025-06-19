@@ -75,21 +75,23 @@ func _input(event: InputEvent) -> void:
 					#dragged_card.queue_free()
 				dragged_card=null
 	if event is InputEventKey && event.pressed:
-		
-		var card = raycast_for_card()
-		if card:
-			if event.keycode == KEY_SPACE:
-				card.toggle_concealment()
-			elif event.keycode == KEY_D:
-				card.take_damage(1)
-			elif event.keycode == KEY_H:
-				card.heal()
-			elif event.keycode == KEY_B:
-				card.buff(1)
-			elif event.keycode == KEY_V:
-				card.buff(-1)
-			elif event.keycode == KEY_M:
-				card.toggle_menu()
+		if event.keycode == KEY_ESCAPE:
+			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+		else:	
+			var card = raycast_for_card()
+			if card:
+				if event.keycode == KEY_SPACE:
+					card.toggle_concealment()
+				elif event.keycode == KEY_D:
+					card.take_damage(1)
+				elif event.keycode == KEY_H:
+					card.heal()
+				elif event.keycode == KEY_B:
+					card.buff(1)
+				elif event.keycode == KEY_V:
+					card.buff(-1)
+				elif event.keycode == KEY_M:
+					card.toggle_menu()
 	elif event is InputEventScreenTouch:	
 		var cast = event as InputEventScreenTouch
 		isAndroid=true
